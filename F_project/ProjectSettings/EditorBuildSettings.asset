@@ -15,11 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Samir.unity
     guid: b26298695ae4b634abd380c0d0509774
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 3e02d5ab8ba5ced49930f50dfee30221
-  - enabled: 0
-    path: Assets/Scenes/MAIN.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/ScenesUI/Game.unity
+    guid: fef003d10d08df344b7b6052204da682
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

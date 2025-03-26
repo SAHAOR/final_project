@@ -262,6 +262,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2065876196}
+        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &878445825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 748496050657364975, guid: 12457e57f156bf04f88f08d2c05942e3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 960679424356946629, guid: 12457e57f156bf04f88f08d2c05942e3, type: 3}
       propertyPath: m_Color.b
