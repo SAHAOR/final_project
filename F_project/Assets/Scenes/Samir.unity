@@ -975,6 +975,7 @@ MonoBehaviour:
   roomCodeText: {fileID: 895832883}
   playersText: {fileID: 1191588134}
   playButton: {fileID: 1747558120}
+  spawnPoint: {fileID: 2102642117407705432, guid: 04dcfc5a523f6564f827ad398f4a832b, type: 3}
 --- !u!4 &506021024
 Transform:
   m_ObjectHideFlags: 0

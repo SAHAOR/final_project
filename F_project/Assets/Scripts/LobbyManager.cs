@@ -9,13 +9,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public TMP_InputField roomInput;    
     public TMP_Text roomCodeText;       
     public TMP_Text playersText;        
-    public Button playButton;       
+    public Button playButton;    
+    
 
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings(); // Conectar a Photon al iniciar
         PhotonNetwork.AutomaticallySyncScene = true;
         playButton.interactable = false; // Deshabilitar al inicio
+
     }
 
     public override void OnConnectedToMaster()
