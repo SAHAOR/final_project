@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuOpciones;
     [SerializeField] private GameObject menuCreditos;
 
-    // Método genérico para mostrar cualquier panel y ocultar los demás
+    // Mï¿½todo genï¿½rico para mostrar cualquier panel y ocultar los demï¿½s
     private void MostrarSoloEsteMenu(GameObject menuActivo)
     {
         pantallaInicio.SetActive(false);
@@ -20,19 +20,19 @@ public class UIManager : MonoBehaviour
         menuActivo.SetActive(true);
     }
 
-    // Botón: Mostrar el Menú Principal
+    // Botï¿½n: Mostrar el Menï¿½ Principal
     public void MostrarMenuPrincipal()
     {
         MostrarSoloEsteMenu(menuPrincipal);
     }
 
-    // Botón: Mostrar el menú How To Play
+    // Botï¿½n: Mostrar el menï¿½ How To Play
     public void MostrarMenuHow()
     {
         MostrarSoloEsteMenu(menuHow);
     }
 
-    // Botón: Mostrar el menú de Opciones
+    // Botï¿½n: Mostrar el menï¿½ de Opciones
     public void MostrarMenuOpciones()
     {
         MostrarSoloEsteMenu(menuOpciones);
@@ -42,9 +42,10 @@ public class UIManager : MonoBehaviour
         MostrarSoloEsteMenu(menuCreditos);
     }
 
-    // Botón: Cargar la escena del juego
-    public void CargarEscenaJuego()
+    // Botï¿½n: Cargar la escena del juego
+    public void CargarEscenaJuego(string NombreMenu)
     {
-        SceneManager.LoadScene(1); // O usa el nombre con SceneManager.LoadScene("NombreEscena");
+        Time.timeScale = 1;
+        SceneManager.LoadScene(NombreMenu, LoadSceneMode.Single);
     }
 }
