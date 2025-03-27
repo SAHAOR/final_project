@@ -4645,7 +4645,7 @@ GameObject:
   - component: {fileID: 655249307}
   - component: {fileID: 655249306}
   m_Layer: 5
-  m_Name: Pantlalla brillo
+  m_Name: BrightnessScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6610,12 +6610,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 655249305}
   - {fileID: 5767459440066810549}
   - {fileID: 303714724120117767}
   - {fileID: 208080479}
   - {fileID: 1272525506}
   - {fileID: 2032725738293233701}
+  - {fileID: 655249305}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12441,7 +12441,7 @@ GameObject:
   - component: {fileID: 1661751451}
   - component: {fileID: 1661751453}
   m_Layer: 5
-  m_Name: SFXSliderTitleText
+  m_Name: BrightnessSliderTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15821,8 +15821,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2080418627}
   - component: {fileID: 2080418628}
+  - component: {fileID: 2080418629}
   m_Layer: 5
-  m_Name: SFXSlider
+  m_Name: BrightnessSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15900,19 +15901,21 @@ MonoBehaviour:
   m_Value: 0.2
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BrightnessManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &2080418629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080418626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3882a458cfc24469024e71c0073a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brightnessPanel: {fileID: 655249306}
+  brightnessSlider: {fileID: 2080418628}
 --- !u!1 &2081006135
 GameObject:
   m_ObjectHideFlags: 0
@@ -16380,16 +16383,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -17267,16 +17270,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8358836083243128005}
@@ -17472,16 +17475,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -17755,16 +17758,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -18226,16 +18229,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -18596,16 +18599,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8358836083243128005}
@@ -18794,16 +18797,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -19178,16 +19181,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -19301,16 +19304,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -19381,16 +19384,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -19618,16 +19621,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -19832,16 +19835,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6028604988637081847}
@@ -20053,16 +20056,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -20439,16 +20442,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -22322,16 +22325,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -22518,16 +22521,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6028604988637081847}
@@ -22761,16 +22764,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
@@ -22908,16 +22911,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 793328585}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5863886696059880017}
