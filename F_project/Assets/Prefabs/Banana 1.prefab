@@ -63,10 +63,10 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 39d9bc15bb292e04f8b03be80cd0cfdc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 802e703ead6e35e4a8023e916edd5665, type: 2}
+      objectReference: {fileID: 2100000, guid: a4e32d9ee7792ff43825576fb965b533, type: 2}
     - target: {fileID: 919132149155446097, guid: 39d9bc15bb292e04f8b03be80cd0cfdc, type: 3}
       propertyPath: m_Name
-      value: Banana
+      value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 39d9bc15bb292e04f8b03be80cd0cfdc, type: 3}
       propertyPath: m_TagString
@@ -134,6 +134,9 @@ MonoBehaviour:
   spawnDistance: 4
   moveSpeed: 3
   destroyFruitSeconds: 20
+  disableTime: 1.5
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  grownColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!136 &8377508128316955930
 CapsuleCollider:
   m_ObjectHideFlags: 0
