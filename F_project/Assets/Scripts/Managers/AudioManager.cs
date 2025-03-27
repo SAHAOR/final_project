@@ -4,35 +4,51 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-
     public static AudioManager instance { get; private set; }
-    [SerializeField] AudioMixer master;
-    [SerializeField] AudioSource  sfxAudio, musicAudio;
+
+    [SerializeField] private AudioMixer master;
+    [SerializeField] private AudioSource sfxAudio, musicAudio;
+    [SerializeField] private Volume volumeController; // Ahora se asigna en el Inspector
     public Sound[] musicSounds, sfxSounds;
 
-  
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
             Destroy(gameObject);
-        
         }
     }
 
     void Start()
     {
-        PlayMusic("example menu theme");
+        // Si la referencia no está asignada en el Inspector, buscar automáticamente
+        if (volumeController == null)
+        {
+            volumeController = FindFirstObjectByType<Volume>();
+        }
+
+        if (volumeController != null)
+        {
+            volumeController.LoadVolumePreferences(); // Cargar volumen guardado
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró el script Volume en la escena.");
+        }
+
+        PlayMusic("example menu theme 2"); // Reproduce la música del menú con el volumen correcto
     }
 
-    public void PlaySfx(string name)
-    {   
-        Sound sfx = Array.Find(sfxSounds, x => x.nameSound == name);
 
+
+    public void PlaySfx(string name)
+    {
+        Sound sfx = Array.Find(sfxSounds, x => x.nameSound == name);
         if (sfx == null)
         {
             Debug.Log("Sound Not Found");
@@ -41,7 +57,6 @@ public class AudioManager : MonoBehaviour
         {
             sfxAudio.PlayOneShot(sfx.clip);
         }
-
     }
 
     public void PlayMusic(string name)
@@ -50,7 +65,6 @@ public class AudioManager : MonoBehaviour
         if (music == null)
         {
             Debug.Log("Sound Not Found");
-            Debug.Log(music);
         }
         else
         {
@@ -58,7 +72,6 @@ public class AudioManager : MonoBehaviour
             musicAudio.Play();
             musicAudio.loop = true;
         }
-
     }
 
     public void RestartMusic()
@@ -66,5 +79,4 @@ public class AudioManager : MonoBehaviour
         musicAudio.Stop();
         musicAudio.Play();
     }
-
 }

@@ -1,84 +1,86 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class Volume : MonoBehaviour
 {
+    [SerializeField] private AudioMixer master;
+    [SerializeField] private Slider sfxAudio, musicAudio, masterAudio;
+    public GameObject muteCheck; // Imagen del mute
 
-    [SerializeField] AudioMixer master;
-    [SerializeField] private Slider sfxAudio, musicAudio;
     public bool isMute;
-    public string musicSavedValue = "musicValue";  // Clave para guardar el volumen de la música en PlayerPrefs
-    public string sfxSavedValue = "sfxValue";
+
+    private const string musicPref = "musicVolume";
+    private const string sfxPref = "SFXVolume";
+    private const string masterPref = "masterAudio";
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume"))
-        {
-            LoadSoundPreferences();
-        }
-
-        else
-        {
-            MusicVolumeControl();
-            SFXVolumeControl();
-        }
-
+        // Solo carga los valores al inicio de la escena si es necesario
+        LoadVolumePreferences();
     }
-    // Controla el volumen de la música
+
+    // Método que debes llamar al abrir el panel de sonido
+    public void LoadVolumePreferences()
+    {
+        // Obtiene lo que esté guardado o asigna 0.5f por defecto
+        float music = PlayerPrefs.GetFloat(musicPref, 0.5f);
+        float sfx = PlayerPrefs.GetFloat(sfxPref, 0.5f);
+        float masterVol = PlayerPrefs.GetFloat(masterPref, 0.5f);
+
+        // Asigna valores a los sliders sin bajar el volumen
+        musicAudio.value = music;
+        sfxAudio.value = sfx;
+        masterAudio.value = masterVol;
+
+        // Aplica valores cargados
+        ApplyVolume("Music Volume", music);
+        ApplyVolume("SFX Volume", sfx);
+        ApplyVolume("Master Volume", masterVol);
+    }
+
+    // Método genérico para aplicar volumen
+    private void ApplyVolume(string parameterName, float value)
+    {
+        float adjustedVolume = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20;
+        master.SetFloat(parameterName, adjustedVolume);
+    }
+
+    public void MasterVolumeControl()
+    {
+        float value = masterAudio.value;
+        ApplyVolume("Master Volume", value);
+        PlayerPrefs.SetFloat(masterPref, value);
+    }
+
     public void MusicVolumeControl()
     {
-        float volume = musicAudio.value;
-
-        // Evita Log10(0) usando un mínimo de 0.0001f
-        float adjustedVolume = Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20;
-
-        master.SetFloat("Music Volume", adjustedVolume);
-
-        PlayerPrefs.SetFloat("musicVolume", volume);
+        float value = musicAudio.value;
+        ApplyVolume("Music Volume", value);
+        PlayerPrefs.SetFloat(musicPref, value);
     }
 
-
-    // Controla el volumen de los efectos de sonido
     public void SFXVolumeControl()
     {
-        float volume = sfxAudio.value;
-
-        float adjustedVolume = Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20;
-        master.SetFloat("SFX Volume", adjustedVolume);
-
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        float value = sfxAudio.value;
+        ApplyVolume("SFX Volume", value);
+        PlayerPrefs.SetFloat(sfxPref, value);
     }
 
-    // Silencia el sonido 
+    // Alterna entre mute y volumen normal
     public void MuteAll()
     {
-        isMute = !isMute; // Alterna entre silencio y sonido
+        isMute = !isMute;
         if (isMute)
         {
-            master.SetFloat("Master Volume", -80f); // Silencia todo el audio
+            master.SetFloat("Master Volume", -80f); // Silencia todo
+            muteCheck.SetActive(true);
         }
         else
         {
-            master.SetFloat("Master Volume", 0f); // Restaura el volumen
+            // Vuelve a aplicar el volumen guardado
+            MasterVolumeControl();
+            muteCheck.SetActive(false);
         }
-    }
-
-    public void SaveSoundPreferences(float levelMusic, float levelSFX)
-    {
-
-        PlayerPrefs.SetFloat(musicSavedValue, levelMusic);
-        PlayerPrefs.SetFloat(sfxSavedValue, levelSFX);
-    }
-
-    // Carga las preferencias de volumen guardadas
-    public void LoadSoundPreferences()
-    {
-        musicAudio.value = PlayerPrefs.GetFloat("musicVolume");
-        sfxAudio.value = PlayerPrefs.GetFloat("SFXVolume");
-
-        MusicVolumeControl();
-        SFXVolumeControl();
     }
 }
