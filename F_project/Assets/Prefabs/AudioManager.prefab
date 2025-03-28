@@ -178,8 +178,15 @@ MonoBehaviour:
   master: {fileID: 24100000, guid: b8fcd41d4323d7246b3db79d6ca8e1ec, type: 2}
   sfxAudio: {fileID: 122616163375480036}
   musicAudio: {fileID: 6514273351658134270}
-  musicSounds: []
-  sfxSounds: []
+  volumeController: {fileID: 0}
+  musicSounds:
+  - nameSound: example menu theme 2
+    clip: {fileID: 8300000, guid: f8f30c700f3a4aa4d97847d91e80e21a, type: 3}
+  - nameSound: Game Theme
+    clip: {fileID: 8300000, guid: e1fbb4ce26e0cf943bdd4df04acf334c, type: 3}
+  sfxSounds:
+  - nameSound: Button sound
+    clip: {fileID: 8300000, guid: 8f95abdcd8a388c4aafcec4ecbfca971, type: 3}
 --- !u!1 &8928990358225722056
 GameObject:
   m_ObjectHideFlags: 0
