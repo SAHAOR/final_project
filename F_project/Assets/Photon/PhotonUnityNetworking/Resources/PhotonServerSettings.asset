@@ -53,6 +53,7 @@ MonoBehaviour:
   - SetOwner
   - RequestNewObject
   - SpawnNewObject
+  - RequestNewObjectRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
