@@ -7937,8 +7937,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7ea692c107e40f848813d5a35c851fd3, type: 2}
+  m_sharedMaterial: {fileID: 5895498723352392651, guid: 7ea692c107e40f848813d5a35c851fd3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9051,8 +9051,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Touch the screen \nto play"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7ea692c107e40f848813d5a35c851fd3, type: 2}
+  m_sharedMaterial: {fileID: 5895498723352392651, guid: 7ea692c107e40f848813d5a35c851fd3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9520,6 +9520,7 @@ GameObject:
   - component: {fileID: 5458697007639739578}
   - component: {fileID: 1230622650132706067}
   - component: {fileID: 4633114284817282544}
+  - component: {fileID: 8080247291237735915}
   - component: {fileID: 8080247291237735914}
   m_Layer: 5
   m_Name: StartButton
@@ -11499,6 +11500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransitionMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7635577939154673166, guid: 65da9d8312a134441859f93b3d6f49ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12556,7 +12561,6 @@ GameObject:
   - component: {fileID: 390243474451135138}
   - component: {fileID: 1835505827367071019}
   - component: {fileID: 8543415028935107037}
-  - component: {fileID: 8543415028935107038}
   m_Layer: 5
   m_Name: PlayButtonText
   m_TagString: Untagged
@@ -13327,6 +13331,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8080247291237735915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237039247896142049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93eaf0d0cd01d7f45b0dae9c9dff574c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 1835505827367071019}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0.6156863, g: 0.007843138, b: 0.03137255, a: 0.78431374}
+  pressedColor: {r: 0.6156863, g: 0.007843138, b: 0.03137255, a: 1}
 --- !u!114 &8267203711198143870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13774,21 +13794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 1
---- !u!114 &8543415028935107038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6771850016599469254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e8580cf7da2611439ce91b3a62b60e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1835505827367071019}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  hoverColor: {r: 0.80392164, g: 0.5058824, b: 0.007843138, a: 1}
 --- !u!114 &8674148534478536478
 MonoBehaviour:
   m_ObjectHideFlags: 0
