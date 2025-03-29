@@ -1,43 +1,28 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
 
-public class LanguageDropdown : MonoBehaviour
+public class LanguageDropDown : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
-    public LocalizationManager localizationManager;
+    private List<string> availableLanguages = new List<string> { "English", "EspaÃ±ol" };
 
     void Start()
     {
-        // Asegurar que el Dropdown tenga opciones
         dropdown.ClearOptions();
-        dropdown.AddOptions(new System.Collections.Generic.List<string> { "English", "Español" });
+        dropdown.AddOptions(availableLanguages);
 
-        // Cargar el idioma guardado o el predeterminado
-        int savedIndex = PlayerPrefs.GetInt("SelectedLanguage", 0);
-        dropdown.value = savedIndex;
+        // Cargar el idioma guardado en PlayerPrefs y reflejarlo en el Dropdown
+        string savedLanguage = PlayerPrefs.GetString("Language", "English");
+        dropdown.value = availableLanguages.IndexOf(savedLanguage);
+        dropdown.RefreshShownValue();
 
-        // Agregar el listener para el cambio de idioma
-        dropdown.onValueChanged.AddListener(delegate { ChangeLanguage(); });
-
-        // Aplicar el idioma inicial
-        ChangeLanguage();
+        dropdown.onValueChanged.AddListener(ChangeLanguage);
     }
 
-    public void ChangeLanguage()
+    void ChangeLanguage(int index)
     {
-        string selectedLanguage = dropdown.options[dropdown.value].text;
-        localizationManager.ChangeLanguage(selectedLanguage, localizationManager.languageFile);
-
-        // Guardar el idioma seleccionado en PlayerPrefs
-        PlayerPrefs.SetInt("SelectedLanguage", dropdown.value);
-        PlayerPrefs.Save();
-
-        // Actualizar los textos en la escena con la nueva sintaxis
-        LocalizedText[] texts = Object.FindObjectsByType<LocalizedText>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (LocalizedText text in texts)
-        {
-            text.UpdateText();
-        }
+        string selectedLanguage = availableLanguages[index];
+        LocalizationManager.Instance.LoadLanguage(selectedLanguage);
     }
 }

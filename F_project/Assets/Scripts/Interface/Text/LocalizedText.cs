@@ -1,45 +1,34 @@
 using UnityEngine;
 using TMPro; // Importar TextMeshPro
-
+using System.Collections.Generic;
 public class LocalizedText : MonoBehaviour
 {
-    public string key;
-    private TMP_Text textComponent; // Usar TMP_Text en vez de Text
+  public int key;
+    private TMP_Text textComponent;
+    private static List<LocalizedText> allTexts = new List<LocalizedText>();
+
+    void Awake()
+    {
+        textComponent = GetComponent<TMP_Text>();
+        allTexts.Add(this);
+    }
 
     void Start()
     {
-        textComponent = GetComponent<TMPro.TMP_Text>();
-
-        if (textComponent == null)
-        {
-            Debug.LogWarning($"?? No se encontró un componente TMP_Text en {gameObject.name}. Lo omitiré.");
-            return;
-        }
-
-        if (LocalizationManager.instance == null)
-        {
-            Debug.LogError("? LocalizationManager no está inicializado.");
-            return;
-        }
-
         UpdateText();
     }
 
-
     public void UpdateText()
     {
-        if (LocalizationManager.instance == null)
-        {
-            Debug.LogError("? LocalizationManager no está inicializado en UpdateText.");
-            return;
-        }
+        if (LocalizationManager.Instance != null)
+            textComponent.text = LocalizationManager.Instance.GetText(key);
+    }
 
-        if (textComponent == null)
+    public static void UpdateAllTexts()
+    {
+        foreach (var langText in allTexts)
         {
-            Debug.LogWarning($"?? No se encontró un componente TMP_Text en {gameObject.name}. Lo omitiré.");
-            return;
+            langText.UpdateText();
         }
-
-        textComponent.text = LocalizationManager.instance.GetLocalizedValue(key);
     }
 }
