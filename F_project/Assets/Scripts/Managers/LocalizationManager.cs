@@ -1,98 +1,71 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-
+using UnityEngine.UI;
+using TMPro;
 public class LocalizationManager : MonoBehaviour
 {
-    public static LocalizationManager instance;
-    private Dictionary<string, string> localizedText;
-    public string currentLanguage = "English"; // Idioma por defecto
-    public TextAsset languageFile; // Nuevo campo para asignar en el Inspectorpublic TextAsset languageFile; // Nuevo campo para asignar en el Inspector
+    public static LocalizationManager Instance;
+    public Dictionary<int, string> languageFile = new Dictionary<int, string>();
+    public string currentLanguage = "English";
 
-    private void Awake()
+    void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-            localizedText = new Dictionary<string, string>();
+            LoadLanguage(PlayerPrefs.GetString("Language", "English"));
         }
         else
         {
             Destroy(gameObject);
         }
-
-        if (languageFile != null)
-        {
-            LoadLocalizedText(languageFile);
-        }
-        else
-        {
-            Debug.LogError("? No se ha asignado el archivo de idioma en LocalizationManager.");
-        }
     }
 
-
-    private void Start()
+    public void LoadLanguage(string language)
     {
-        if (languageFile != null)
-        {
-            LoadLocalizedText(languageFile);
-        }
-        else
-        {
-            Debug.LogError("No se ha asignado un archivo de idioma en LocalizationManager.");
-        }
+        currentLanguage = language;
+        PlayerPrefs.SetString("Language", language);
+        PlayerPrefs.Save();
+        
+        // Cargar el diccionario con los textos en el idioma seleccionado
+        languageFile = LoadLanguageFile(language);
+        
+        // Notificar a todos los textos que deben actualizarse
+        LocalizedText.UpdateAllTexts();
     }
 
-    public void LoadLocalizedText(TextAsset textAsset)
+    private Dictionary<int, string> LoadLanguageFile(string language)
     {
-        localizedText = new Dictionary<string, string>();
+        Dictionary<int, string> tempDictionary = new Dictionary<int, string>();
 
-        string[] lines = textAsset.text.Split('\n');
+        bool isEnglish = language == "English";
 
-        int languageIndex = -1;
-        string[] headers = lines[0].Split(';');
+        tempDictionary.Add(1, isEnglish ? "Touch the screen to play" : "Toca la pantalla para jugar.");
+        tempDictionary.Add(2, isEnglish ? "Options" : "Opciones");
+        tempDictionary.Add(3, isEnglish ? "Exit" : "Salir");
+        tempDictionary.Add(4, isEnglish ? "Settings" : "Opciones");
+        tempDictionary.Add(5, isEnglish ? "Resolution" : "Resolución");
+        tempDictionary.Add(6, isEnglish ? "Master" : "General");
+        tempDictionary.Add(7, isEnglish ? "BGM" : "BGM");
+        tempDictionary.Add(8, isEnglish ? "SFX" : "SFX");
+        tempDictionary.Add(9, isEnglish ? "Mute" : "Silenciar");
+        tempDictionary.Add(10, isEnglish ? "Language" : "Lenguaje");
+        tempDictionary.Add(11, isEnglish ? "Back" : "Atrás");
+        tempDictionary.Add(12, isEnglish ? "Home" : "Inicio");
+        tempDictionary.Add(13, isEnglish ? "FullScreen" : "Pantalla Completa");
+        tempDictionary.Add(14, isEnglish ? "Create / Join private room" : "Crear / Unirse a una sala privada");
+        tempDictionary.Add(15, isEnglish ? "How to play?" : "¿Cómo jugar?");
+        tempDictionary.Add(16, isEnglish ? "Credits" : "Créditos");
+        tempDictionary.Add(17, isEnglish ? "Back" : "Volver");
+        tempDictionary.Add(18, isEnglish ? "Credits" : "Créditos");
+        tempDictionary.Add(19, isEnglish ? "Brightness" : "Brillo");
 
-        // Buscar la columna del idioma actual
-        for (int i = 1; i < headers.Length; i++)
-        {
-            if (headers[i].Trim() == currentLanguage)
-            {
-                languageIndex = i;
-                break;
-            }
-        }
-
-        if (languageIndex == -1)
-        {
-            Debug.LogError("Idioma no encontrado en el archivo.");
-            return;
-        }
-
-        // Cargar las traducciones
-        for (int i = 1; i < lines.Length; i++)
-        {
-            string[] row = lines[i].Split(';');
-            if (row.Length > languageIndex)
-            {
-                localizedText[row[0].Trim()] = row[languageIndex].Trim();
-            }
-        }
+        return tempDictionary;
     }
 
-    public string GetLocalizedValue(string key)
+    public string GetText(int key)
     {
-        if (localizedText.ContainsKey(key))
-        {
-            return localizedText[key];
-        }
-        return "? " + key;
-    }
-
-    public void ChangeLanguage(string newLanguage, TextAsset textAsset)
-    {
-        currentLanguage = newLanguage;
-        LoadLocalizedText(textAsset);
+        return languageFile.ContainsKey(key) ? languageFile[key] : key.ToString();
     }
 }
