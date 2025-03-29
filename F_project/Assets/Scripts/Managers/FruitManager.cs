@@ -1,240 +1,133 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FruitManager : MonoBehaviour
 {
-    public GameObject fruitPrefab;
-    public float spawnDistance = 2.0f; // Mayor distancia de aparición
-    public float moveSpeed = 10.0f; // Velocidad alta para un flujo más frenético
-
-    [SerializeField] private float destroyFruitSeconds = 5f;
-    [SerializeField] private float disableTime = 1.5f;
-    [SerializeField] private Color disabledColor = Color.gray;
-    [SerializeField] private Color grownColor = Color.yellow;
-
-    private Rigidbody rb;
-    private Renderer fruitRenderer;
-    private Color originalColor;
-    private bool isMainFruit = true;
-    private bool hasBeenClicked = false;
-    private bool isDisabled = false;
-    private bool isGrowing = false;
+    public GameObject fruitPrefab;    // Prefab de la fruta
+    public float fruitSize = 1f;      // Tamaño final de la fruta
+    public float growthTime = 2f;     // Tiempo para alcanzar el tamaño final
+    public float lifetime = 10f;      // Tiempo antes de que desaparezca una fruta
+    public float movementSpeed = 3f;  // Velocidad de movimiento
+    public float rotationSpeed = 50f; // Velocidad de rotación uniforme para todas las frutas
+    private bool isDisabled = false;  // Estado de desactivación
+    private bool isFirstClickHandled = false; // Indica si la fruta principal ya recibió el primer clic
+    public Vector3 direction;         // Dirección de movimiento
+    public float directionChangeInterval = 0.5f; // Intervalo de cambio de dirección
 
     private void Start()
     {
-        // Inicialización del Rigidbody y Renderer
-        rb = GetComponent<Rigidbody>();
-        if (rb == null)
+        // Configuración inicial de la dirección (la primera banana estática)
+        if (!isFirstClickHandled)
         {
-            Debug.LogError("Rigidbody no está asignado al objeto: " + gameObject.name);
-            return;
+            direction = Vector3.zero; // La fruta principal comienza sin moverse
         }
-        rb.freezeRotation = true;
-
-        fruitRenderer = GetComponent<Renderer>();
-        if (fruitRenderer == null)
+        else
         {
-            Debug.LogError("Renderer no está asignado al objeto: " + gameObject.name);
-            return;
-        }
-
-        // Establece y aplica el color inicial
-        originalColor = fruitRenderer.material.color;
-        fruitRenderer.material.color = originalColor;
-
-        // Inicializa el movimiento dependiendo si es principal o hija
-        if (!isMainFruit || hasBeenClicked)
-        {
-            InitializeFruitMovement(); // Activa el movimiento si no es principal o si ya fue clicada
+            StartCoroutine(ChangeDirectionPeriodically()); // Cambios aleatorios en la dirección
         }
     }
 
     private void Update()
     {
-        RotateFruit();
-    }
+        if (!isDisabled && (isFirstClickHandled || direction != Vector3.zero))
+        {
+            MoveFruit();
+        }
 
-    private void FixedUpdate()
-    {
-        ManageFruitMovement();
+        // Rotación continua alrededor del eje Y
+        RotateFruit();
     }
 
     private void OnMouseDown()
     {
+        // Bloquear interacción si la fruta está deshabilitada
         if (isDisabled) return;
-        HandleMouseClick();
+
+        // Comportamiento exclusivo para la fruta principal en su primer clic
+        if (!isFirstClickHandled)
+        {
+            StartCoroutine(DisableFruitOnFirstClick());
+            isFirstClickHandled = true; // Marcar que ya fue activada
+            direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f).normalized; // Asignar movimiento
+            StartCoroutine(ChangeDirectionPeriodically()); // Iniciar cambios aleatorios en dirección
+        }
+        else
+        {
+            SpawnNewFruit(); // Generar frutas hijas al clic
+        }
+    }
+
+    private IEnumerator DisableFruitOnFirstClick()
+    {
+        isDisabled = true;
+        GetComponent<Renderer>().material.color = Color.red; // Cambiar color al deshabilitar
+        yield return new WaitForSeconds(2f); // Deshabilitado por 2 segundos
+        GetComponent<Renderer>().material.color = Color.white; // Restaurar color
+        isDisabled = false;
+    }
+
+    private void MoveFruit()
+    {
+        // Movimiento en la dirección actual dentro del plano X-Y
+        transform.position += direction * movementSpeed * Time.deltaTime;
     }
 
     private void RotateFruit()
     {
-        transform.Rotate(Vector3.up * 100 * Time.deltaTime);
-    }
-
-    private void InitializeFruitMovement()
-    {
-        if (rb != null && !rb.isKinematic)
-        {
-            SetRandomDirection();
-            InvokeRepeating(nameof(SetRandomDirection), 1f, 1f); // Cambiar dirección más frecuentemente
-        }
-    }
-
-    private void ManageFruitMovement()
-    {
-        if (rb != null && (hasBeenClicked || !isMainFruit) && !rb.isKinematic)
-        {
-            rb.linearVelocity = rb.linearVelocity.normalized * moveSpeed;
-        }
-    }
-
-    private void HandleMouseClick()
-    {
-        if (GameManager.Instance == null || !GameManager.Instance.CanSpawnFruit()) return;
-
-        if (isMainFruit && !hasBeenClicked)
-        {
-            hasBeenClicked = true;
-            StartCoroutine(DisableTemporarily());
-        }
-
-        SpawnNewFruit();
-    }
-
-    private IEnumerator DisableTemporarily()
-    {
-        isDisabled = true;
-        fruitRenderer.material.color = disabledColor;
-
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.isKinematic = true;
-        }
-
-        yield return new WaitForSeconds(disableTime);
-
-        fruitRenderer.material.color = originalColor;
-
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-            SetRandomDirection();
-        }
-        isDisabled = false;
-    }
-
-    private void SpawnNewFruit()
-    {
-        if (GameManager.Instance == null || !GameManager.Instance.CanSpawnFruit()) return;
-
-        Vector3 newPosition = GenerateNewPosition();
-
-        if (newPosition != Vector3.zero)
-        {
-            // Crear la primera fruta
-            GameObject newFruit = Instantiate(fruitPrefab, newPosition, Quaternion.identity);
-            SetupFruit(newFruit);
-
-            // Crear una segunda fruta si el Power Up está activo
-            if (PowerUpManager.Instance != null && PowerUpManager.Instance.IsPowerUpActive())
-            {
-                Vector3 secondPosition = GenerateNewPosition();
-                if (secondPosition != Vector3.zero)
-                {
-                    GameObject secondFruit = Instantiate(fruitPrefab, secondPosition, Quaternion.identity);
-                    SetupFruit(secondFruit);
-                }
-            }
-        }
-    }
-
-    private void SetupFruit(GameObject fruit)
-    {
-        fruit.transform.localScale = Vector3.zero;
-        FruitManager fruitScript = fruit.GetComponent<FruitManager>();
-        if (fruitScript != null)
-        {
-            fruitScript.isMainFruit = false;
-            fruitScript.hasBeenClicked = true; // Activar movimiento desde el inicio
-            fruitScript.InitializeFruitMovement(); // Garantizar dirección inicial
-            fruitScript.SetInitialColor(originalColor); // Color inicial correcto
-
-            StartCoroutine(fruitScript.GrowFruit());
-            GameManager.Instance.AddFruit();
-            Destroy(fruit, destroyFruitSeconds);
-        }
-    }
-
-    private Vector3 GenerateNewPosition()
-    {
-        int attempts = 10;
-        Vector3 newPosition;
-
-        do
-        {
-            float offsetX = Random.Range(-spawnDistance, spawnDistance);
-            float offsetY = Random.Range(-spawnDistance, spawnDistance);
-            newPosition = transform.position + new Vector3(offsetX, offsetY, 0);
-            attempts--;
-        } while (IsPositionOccupied(newPosition) && attempts > 0);
-
-        return attempts > 0 ? newPosition : Vector3.zero;
-    }
-
-    private IEnumerator GrowFruit()
-    {
-        isGrowing = true;
-        float elapsedTime = 0f;
-        Vector3 targetScale = Vector3.one * 1.2f;
-
-        while (elapsedTime < 2f) // Incrementar a 2 segundos el tiempo de crecimiento
-        {
-            transform.localScale = Vector3.Lerp(Vector3.zero, targetScale, elapsedTime / 2f);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.localScale = targetScale;
-        fruitRenderer.material.color = grownColor;
-        isGrowing = false;
-    }
-
-    private bool IsPositionOccupied(Vector3 position)
-    {
-        return Physics.OverlapSphere(position, 0.5f).Length > 0;
-    }
-
-    private void SetRandomDirection()
-    {
-        if (rb != null && !rb.isKinematic)
-        {
-            rb.linearVelocity = new Vector3(
-                Random.Range(-2f, 2f), // Mayor rango de movimiento
-                Random.Range(-2f, 2f),
-                0f
-            ).normalized * moveSpeed;
-        }
-    }
-
-    public void SetInitialColor(Color initialColor)
-    {
-        if (fruitRenderer != null)
-        {
-            fruitRenderer.material.color = initialColor; // Aplicar el color inicial correcto
-        }
+        // Rotación continua alrededor del eje Y con una velocidad fija
+        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Rebote cuando las bananas choquen entre ellas
-        if (collision.gameObject.CompareTag("Fruit") && rb != null)
+        // Rebote al colisionar con objetos con el tag "Wall"
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            // Asegurarse de que el Rigidbody no sea cinemático antes de establecer la dirección
-            if (!rb.isKinematic)
-            {
-                Vector3 reflectDir = Vector3.Reflect(rb.linearVelocity, collision.contacts[0].normal);
-                rb.linearVelocity = reflectDir.normalized * moveSpeed;
-            }
+            // Reflejar la dirección según el punto de contacto
+            direction = Vector3.Reflect(direction, collision.contacts[0].normal);
+            direction.z = 0; // Asegurar que no haya movimiento en el eje Z
+        }
+    }
+
+    private void SpawnNewFruit()
+    {
+        // Crear una nueva fruta hija
+        GameObject newFruit = Instantiate(fruitPrefab, transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f), Quaternion.identity);
+
+        // Configurar movimiento para la fruta hija
+        FruitManager fruitManager = newFruit.GetComponent<FruitManager>();
+        if (fruitManager != null)
+        {
+            fruitManager.direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f).normalized; // Asignar dirección aleatoria
+            fruitManager.isFirstClickHandled = true; // Marcarla como activada para que se mueva
+            fruitManager.StartCoroutine(fruitManager.ChangeDirectionPeriodically()); // Cambios de dirección aleatorios
+        }
+
+        newFruit.transform.localScale = Vector3.zero; // Iniciar la fruta hija en tamaño cero
+        StartCoroutine(GrowFruit(newFruit)); // Activar el crecimiento gradual
+        Destroy(newFruit, lifetime); // Destruir la fruta hija después del tiempo de vida
+    }
+
+    private IEnumerator GrowFruit(GameObject fruit)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < growthTime)
+        {
+            fruit.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * fruitSize, elapsedTime / growthTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        fruit.transform.localScale = Vector3.one * fruitSize; // Asegurar que alcance el tamaño final
+    }
+
+    private IEnumerator ChangeDirectionPeriodically()
+    {
+        while (true)
+        {
+            // Cambiar la dirección aleatoriamente cada cierto intervalo
+            direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f).normalized;
+            yield return new WaitForSeconds(directionChangeInterval);
         }
     }
 }
