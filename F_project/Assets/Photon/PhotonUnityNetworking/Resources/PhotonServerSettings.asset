@@ -60,6 +60,10 @@ MonoBehaviour:
   - StartDisable
   - SetCanSpawn
   - SetIndestructible
+  - SetLoser
+  - SetWinner
+  - SyncDirection
+  - SyncVelocity
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

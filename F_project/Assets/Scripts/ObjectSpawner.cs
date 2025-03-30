@@ -5,7 +5,8 @@ using System.Collections;
 public class ObjectSpawner : MonoBehaviourPun
 {
     public static ObjectSpawner instance;
-    public Transform SpawnPoint;
+    public Transform SpawnPoint1;
+    public Transform SpawnPoint2;
 
     private void Awake()
     {
@@ -22,8 +23,8 @@ public class ObjectSpawner : MonoBehaviourPun
     void SpawnInitialObjects()
     {
         if (!PhotonNetwork.IsMasterClient) return;
-        GameObject apple = PhotonNetwork.Instantiate("ApplePrefab", SpawnPoint.position, Quaternion.identity);
-        GameObject banana = PhotonNetwork.Instantiate("BananaPrefab", SpawnPoint.position, Quaternion.identity);
+        GameObject apple = PhotonNetwork.Instantiate("ApplePrefab", SpawnPoint1.position, Quaternion.identity);
+        GameObject banana = PhotonNetwork.Instantiate("BananaPrefab", SpawnPoint2.position, Quaternion.identity);
 
         apple.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);
         banana.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);

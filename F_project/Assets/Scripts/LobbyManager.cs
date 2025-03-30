@@ -37,7 +37,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        roomCodeText.text = "Código: " + PhotonNetwork.CurrentRoom.Name;
+        roomCodeText.text = PhotonNetwork.CurrentRoom.Name;
         CheckPlayersInRoom();
     }
 
