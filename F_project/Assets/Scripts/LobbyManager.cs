@@ -9,15 +9,22 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public TMP_InputField roomInput;    
     public TMP_Text roomCodeText;       
     public TMP_Text playersText;        
+<<<<<<< HEAD
     public Button playButton;    
     
+=======
+    public Button playButton;       
+>>>>>>> Develop
 
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings(); // Conectar a Photon al iniciar
         PhotonNetwork.AutomaticallySyncScene = true;
         playButton.interactable = false; // Deshabilitar al inicio
+<<<<<<< HEAD
 
+=======
+>>>>>>> Develop
     }
 
     public override void OnConnectedToMaster()
@@ -38,7 +45,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+<<<<<<< HEAD
         roomCodeText.text = "Código: " + PhotonNetwork.CurrentRoom.Name;
+=======
+        roomCodeText.text = /*"Código: " +*/ PhotonNetwork.CurrentRoom.Name;
+>>>>>>> Develop
         CheckPlayersInRoom();
     }
 
