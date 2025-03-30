@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+  isIndestructible: 0
 --- !u!54 &-30961550398830213
 Rigidbody:
   m_ObjectHideFlags: 0

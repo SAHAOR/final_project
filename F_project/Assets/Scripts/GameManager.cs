@@ -96,6 +96,17 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
+        if (scorePlayer1 >= 100)
+        {
+            SetWinner(player1ID);
+            SetLoser(player2ID);
+        }
+        else if (scorePlayer2 >= 100)
+        {
+            SetWinner(player2ID);
+            SetLoser(player1ID);
+        }
+
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
     }
 
@@ -126,5 +137,17 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         scoreTextPlayer1.text = $"Jugador 1: {scorePlayer1}";
         scoreTextPlayer2.text = $"Jugador 2: {scorePlayer2}";
+    }
+
+    [PunRPC]
+    void SetWinner(int ID)
+    {
+
+    }
+
+    [PunRPC]
+    void SetLoser(int ID)
+    {
+
     }
 }

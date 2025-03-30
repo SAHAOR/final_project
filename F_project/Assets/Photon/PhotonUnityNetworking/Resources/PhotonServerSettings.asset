@@ -54,6 +54,12 @@ MonoBehaviour:
   - RequestNewObject
   - SpawnNewObject
   - RequestNewObjectRPC
+  - DestroyObject
+  - SetCanGenerate
+  - DisableGenerationTemporarily
+  - StartDisable
+  - SetCanSpawn
+  - SetIndestructible
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

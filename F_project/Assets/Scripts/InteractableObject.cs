@@ -1,33 +1,44 @@
 using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 
 public class InteractableObject : MonoBehaviourPun
 {
     public int owner; // ID del jugador dueño del objeto
     private PhotonView photonView;
+    private bool canGenerate = true; // Permite controlar si puede generar un nuevo objeto
+    public bool isIndestructible = false;
+
+    private void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+    }
+
 
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        if (photonView.Owner != null) // Si ya tiene un dueño, no hacer nada
+        return;
 
         if (photonView.IsMine) // Si el objeto es instanciado por la red, asignar el dueño
         {
             owner = PhotonNetwork.LocalPlayer.ActorNumber;
             photonView.RPC("SetOwner", RpcTarget.AllBuffered, owner);
         }
-
     }
+
 
     public void SetOwnerRPC(int newOwner)
-{
-    if (photonView == null)
     {
-        Debug.LogError($"❌ PhotonView es NULL en {gameObject.name}, no se puede asignar el owner.");
-        return;
-    }
+        if (photonView == null)
+        {
+            Debug.LogError($"❌ PhotonView es NULL en {gameObject.name}, no se puede asignar el owner.");
+            return;
+        }
 
     photonView.RPC("SetOwner", RpcTarget.AllBuffered, newOwner);
-}
+    }
+
 
     [PunRPC]
     void SetOwner(int newOwner)
@@ -35,11 +46,9 @@ public class InteractableObject : MonoBehaviourPun
         owner = newOwner;
     }
 
+
     private void OnMouseDown()
     {
-        //if (!photonView.IsMine) return; // Evitar que otros jugadores interactúen con el objeto de otro
-        
-
         if (PhotonNetwork.LocalPlayer.ActorNumber == owner)
         {
             photonView.RPC("AddScore", RpcTarget.AllBuffered, owner);
@@ -48,14 +57,15 @@ public class InteractableObject : MonoBehaviourPun
         else
         {
             photonView.RPC("SubtractScore", RpcTarget.AllBuffered, owner);
+            RequestDestroy();
         }
-
-         if (!photonView.IsMine) return;
-
     }
+
 
     void RequestInstance ()
     {
+        if (!canGenerate) return;
+
         Debug.Log($"🖱️ {PhotonNetwork.NickName} hizo clic en {gameObject.name}");
         string prefabName;
 
@@ -70,27 +80,69 @@ public class InteractableObject : MonoBehaviourPun
             return;
         }
 
-        Debug.Log(prefabName);
-
         Vector3 spawnPosition = transform.position + Vector3.up * 0.5f; // Generar la nueva posición un poco arriba del objeto actual
 
-        PlayerController.instance.RequestNewObject(prefabName, spawnPosition); // Llamar a la función de solicitud de instancia en el PlayerController
+        StartCoroutine(DisableGenerationTemporarily()); // Deshabilitar generación en el padre antes de instanciar
+
+        PlayerController.instance.RequestNewObject(prefabName, spawnPosition);
+    }
+
+
+    public IEnumerator DisableGenerationTemporarily()
+    {
+        yield return new WaitUntil(() => photonView != null); // Esperar hasta que photonView esté listo
+
+        if (photonView == null || !photonView.IsMine) yield break; //Si PhotonView es destruido interrumpe ejecucion
+
+        photonView.RPC("SetCanSpawn", RpcTarget.AllBuffered, false); // Desactivar generación en todos los clientes
+
+        yield return new WaitForSeconds(5);
+
+        if (photonView == null || !photonView.IsMine) yield break;
+
+        photonView.RPC("SetCanSpawn", RpcTarget.AllBuffered, true); // Reactivar generación en todos los clientes
+    }
+
+
+    [PunRPC]
+    void SetCanSpawn(bool state) //Actualizar cambio de estado en la red
+    {
+        canGenerate = state;
+    }
+
+
+    void RequestDestroy ()
+    {
+        if (isIndestructible) 
+        {
+            Debug.Log($"🚫 No puedes eliminar {gameObject.name} porque es indestructible.");
+            return; 
+        }
+
+        Debug.Log($"🗑️ {PhotonNetwork.NickName} quiere destruir {gameObject.name}");
+
+        ObjectSpawner.instance.photonView.RPC("DestroyObject", RpcTarget.MasterClient, photonView.ViewID); 
+    }
+
+    [PunRPC]
+    public void SetIndestructible(bool value)
+    {
+        isIndestructible = value;
     }
     
 
     [PunRPC]
     void AddScore(int playerID)
     {
-
+        if (!canGenerate) return;
         GameManager.instance.AddScore(playerID);
-    
     }
+
 
     [PunRPC]
     void SubtractScore(int playerID)
     {
-        
+        if (isIndestructible) return;
         GameManager.instance.SubtractScore(playerID);
-        
     }
 }

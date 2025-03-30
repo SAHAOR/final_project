@@ -25,9 +25,12 @@ public class ObjectSpawner : MonoBehaviourPun
         GameObject apple = PhotonNetwork.Instantiate("ApplePrefab", SpawnPoint.position, Quaternion.identity);
         GameObject banana = PhotonNetwork.Instantiate("BananaPrefab", SpawnPoint.position, Quaternion.identity);
 
-        // Asignar dueño
-        apple.GetComponent<PhotonView>().TransferOwnership(1);
-        banana.GetComponent<PhotonView>().TransferOwnership(2);
+        apple.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);
+        banana.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);
+
+
+        apple.GetComponent<PhotonView>().RPC("SetOwner", RpcTarget.AllBuffered, 1);
+        banana.GetComponent<PhotonView>().RPC("SetOwner", RpcTarget.AllBuffered, 2);
     }
 
     [PunRPC]
@@ -42,6 +45,19 @@ public class ObjectSpawner : MonoBehaviourPun
         GameObject obj = PhotonNetwork.Instantiate(prefabName, position, Quaternion.identity);
 
         StartCoroutine(SetOwnerDelayed(obj, ownerID)); // Esperar un pequeño tiempo para asegurar que el objeto se inicializa antes de llamar al RPC
+
+        if (obj != null)
+        { 
+            InteractableObject interactable = obj.GetComponent<InteractableObject>();
+            if(interactable != null)
+            {
+                StartCoroutine(interactable.DisableGenerationTemporarily());
+            }
+            else
+            {
+                Debug.Log("No se encontro interactable");
+            }
+        }
     }
 
     private IEnumerator SetOwnerDelayed(GameObject obj, int ownerID)
@@ -57,6 +73,19 @@ public class ObjectSpawner : MonoBehaviourPun
         else
         {
             Debug.LogError($"❌ Error: {obj.name} no tiene el script InteractableObject adjunto.");
+        }
+    }
+    
+
+    [PunRPC]
+    void DestroyObject(int viewID)
+    {
+        PhotonView obj = PhotonView.Find(viewID);
+
+        if (obj != null)
+        {
+            PhotonNetwork.Destroy(obj.gameObject);
+            Debug.Log($"🗑️ Objeto {obj.gameObject.name} destruido por petición de otro jugador.");
         }
     }
 }

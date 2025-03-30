@@ -24,13 +24,7 @@ public class PlayerController : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine) return; // Solo el jugador dueño ejecuta esto
-
-        if (Input.GetKeyDown(KeyCode.Space)) // Ejemplo: Crear un objeto al presionar espacio
-        {
-            Debug.Log($"🟢 {PhotonNetwork.NickName} detectó SPACE en Update()"); // Ver si se llama 2 veces
-            RequestNewObject(myPrefab, transform.position + Vector3.up);
-        }
+    
     }
 
     public void RequestNewObject(string prefabName, Vector3 position)
@@ -62,6 +56,7 @@ public class PlayerController : MonoBehaviourPun
 
         //ObjectSpawner.instance.SpawnNewObject(prefabName, position, myPlayerID);
         ObjectSpawner.instance.photonView.RPC("SpawnNewObject", RpcTarget.MasterClient, prefabName, position, myPlayerID);
+
     }
 }
 
