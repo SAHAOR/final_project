@@ -668,6 +668,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5665608322411761569, guid: 3774b94a360333244af01541d9fca539, type: 3}
+      propertyPath: fruitSize
+      value: 2.26
+      objectReference: {fileID: 0}
     - target: {fileID: 8561099487486622934, guid: 3774b94a360333244af01541d9fca539, type: 3}
       propertyPath: m_Name
       value: Banana
