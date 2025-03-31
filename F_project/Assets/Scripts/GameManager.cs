@@ -96,12 +96,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 100)
+        if (scorePlayer1 >= 100) /////////////////////////////////LUIS
         {
             SetWinner(player1ID);
             SetLoser(player2ID);
         }
-        else if (scorePlayer2 >= 100)
+        else if (scorePlayer2 >= 100)/////////////////////LUIS
         {
             SetWinner(player2ID);
             SetLoser(player1ID);
@@ -140,13 +140,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SetWinner(int ID)
+    void SetWinner(int ID) //////////////LUIS
     {
 
     }
 
     [PunRPC]
-    void SetLoser(int ID)
+    void SetLoser(int ID) ///////////////LUIS
     {
 
     }
