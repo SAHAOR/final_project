@@ -17,6 +17,9 @@ public class InteractableObject : MonoBehaviourPun
 
     void Start()
     {
+        Debug.Log($"🚀 {gameObject.name} ha sido instanciado correctamente.");
+        StartCoroutine(AutoDestroyAfterTime(10f)); // Iniciar el temporizador de destrucción
+
         if (photonView.Owner != null) // Si ya tiene un dueño, no hacer nada
         return;
 
@@ -130,6 +133,13 @@ public class InteractableObject : MonoBehaviourPun
         isIndestructible = value;
     }
     
+    private IEnumerator AutoDestroyAfterTime(float time)
+    {
+        Debug.Log($"⏳ {gameObject.name} comenzará a contar {time} segundos para autodestruirse.");
+        yield return new WaitForSeconds(time);
+
+        RequestDestroy();
+    }
 
     [PunRPC]
     void AddScore(int playerID)
@@ -145,4 +155,5 @@ public class InteractableObject : MonoBehaviourPun
         if (isIndestructible) return;
         GameManager.instance.SubtractScore(playerID);
     }
+
 }

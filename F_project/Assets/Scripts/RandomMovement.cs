@@ -4,28 +4,28 @@ using System.Collections;
 
 public class RandomMovement : MonoBehaviour
 {
-    public float baseSpeed = 5f; // Velocidad normal de movimiento
-    public float reboundForce = 10f; // Fuerza extra en el rebote
-    private Vector3 direction; // Dirección actual del movimiento
+    public float baseSpeed = 5f;
+    public float reboundForce = 10f;
+    private Vector3 direction;
     private Rigidbody rb;
     private PhotonView photonView;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        PhotonNetwork.SendRate = 60; // Número de paquetes enviados por segundo
-        PhotonNetwork.SerializationRate = 30; // Número de actualizaciones por segundo
+        photonView = GetComponent<PhotonView>();
+        PhotonNetwork.SendRate = 60;
+        PhotonNetwork.SerializationRate = 30;
     }
+
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
-
-        if (PhotonNetwork.IsMasterClient) // Solo el dueño del objeto controla el movimiento
+        if (PhotonNetwork.IsMasterClient)
         {
             direction = GetRandomDirection();
             rb.linearVelocity = direction * baseSpeed;
 
-            photonView.RPC("SyncDirection", RpcTarget.OthersBuffered, direction);
+            photonView.RPC("SyncMovement", RpcTarget.Others, direction, rb.linearVelocity, Vector3.zero);
         }
     }
 
@@ -33,44 +33,51 @@ public class RandomMovement : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            // Mantener el objeto en movimiento y ajustar velocidad gradualmente
+            StartCoroutine(DelayedSync());
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * baseSpeed, Time.deltaTime * 5f);
-            //StartCoroutine(DelayedSync());
-            photonView.RPC("SyncVelocity", RpcTarget.OthersBuffered, rb.linearVelocity);
-            photonView.RPC("SyncDirection", RpcTarget.OthersBuffered, direction);
         }
-        
     }
 
-    
+    void Update()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            transform.position = Vector3.Lerp(transform.position, rb.position, Time.deltaTime * 10f);
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        //if(PhotonNetwork.IsMasterClient)
-        //{
-            if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Object")) // Si choca con una pared
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Object"))
             {
-                Vector3 normal = collision.contacts[0].normal; // Normal de la colisión
-                direction = Vector3.Reflect(direction, normal).normalized; // Cambiar dirección
-                //photonView.RPC("SyncDirection", RpcTarget.OthersBuffered, direction);
-                // Aplicar un impulso extra para rebote más fuerte
-                rb.linearVelocity = Vector3.zero; // Evitar acumulación de velocidad
-                rb.AddForce(direction * reboundForce, ForceMode.Impulse);
+                Vector3 normal = collision.contacts[0].normal;
+                direction = Vector3.Reflect(direction, normal).normalized;
 
+                rb.linearVelocity = Vector3.zero;
+
+                Vector3 reboundImpulse = direction * reboundForce;
+                rb.AddForce(reboundImpulse, ForceMode.Impulse);
+
+                // Enviar dirección, velocidad y el impulso del rebote a los clientes
+                photonView.RPC("SyncMovement", RpcTarget.Others, direction, rb.linearVelocity, reboundImpulse);
             }
-        //}
+        }
     }
 
     [PunRPC]
-    void SyncDirection(Vector3 newDirection)
+    void SyncMovement(Vector3 newDirection, Vector3 newVelocity, Vector3 impulse)
     {
-        direction = newDirection;
-        //StartCoroutine(SmoothDirectionTransition(newDirection));
+        rb.AddForce(impulse, ForceMode.Impulse);
+        StartCoroutine(SmoothDirectionTransition(newDirection));
+        StartCoroutine(SmoothVelocityTransition(newVelocity));
+    
     }
 
     IEnumerator SmoothDirectionTransition(Vector3 targetDirection)
     {
-        float duration = 0.1f; // Duración de la interpolación
+        float duration = 0.1f;
         float elapsedTime = 0f;
         Vector3 startDirection = direction;
 
@@ -81,19 +88,18 @@ public class RandomMovement : MonoBehaviour
             yield return null;
         }
 
-        direction = targetDirection; // Asegurar que termine con la dirección correcta
-    }
-
-    [PunRPC]
-    void SyncVelocity(Vector3 newVelocity)
-    {
-        rb.linearVelocity = newVelocity;
-        //StartCoroutine(SmoothVelocityTransition(newVelocity));/
+        direction = targetDirection;
     }
 
     IEnumerator SmoothVelocityTransition(Vector3 targetVelocity)
     {
-        float duration = 0.1f; // Duración de la interpolación
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody es NULL en SmoothVelocityTransition en " + gameObject.name);
+            yield break;
+        }
+
+        float duration = 0.1f;
         float elapsedTime = 0f;
         Vector3 startVelocity = rb.linearVelocity;
 
@@ -104,15 +110,15 @@ public class RandomMovement : MonoBehaviour
             yield return null;
         }
 
-        rb.linearVelocity = targetVelocity; // Asegurar que termine con la velocidad correcta
+        rb.linearVelocity = targetVelocity;
     }
 
     IEnumerator DelayedSync()
     {
-        yield return new WaitForSeconds(0.1f); // Esperar un poco antes de enviar la sincronización
+        yield return new WaitForSeconds(0.05f);
         if (PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("SyncVelocity", RpcTarget.OthersBuffered, rb.linearVelocity);
+            photonView.RPC("SyncMovement", RpcTarget.Others, direction, rb.linearVelocity, Vector3.zero);
         }
     }
 
