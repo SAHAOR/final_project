@@ -9,7 +9,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public TMP_InputField roomInput;    
     public TMP_Text roomCodeText;       
     public TMP_Text playersText;        
-    public Button playButton;       
+    public Button playButton;    
+    
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        roomCodeText.text = /*"Código: " +*/ PhotonNetwork.CurrentRoom.Name;
+        roomCodeText.text = PhotonNetwork.CurrentRoom.Name;
         CheckPlayersInRoom();
     }
 
