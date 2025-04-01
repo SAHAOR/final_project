@@ -3,11 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance { get; private set; }
     [SerializeField] private GameObject pantallaInicio;
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject menuHow;
     [SerializeField] private GameObject menuOpciones;
     [SerializeField] private GameObject menuCreditos;
+
+    private void Awake()
+    {
+        // Asegura que solo haya una instancia de AudioManager y persista entre escenas
+        if (instance == null)
+        {
+            instance = this;
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+    }
+
 
     // M�todo gen�rico para mostrar cualquier panel y ocultar los dem�s
     private void MostrarSoloEsteMenu(GameObject menuActivo)

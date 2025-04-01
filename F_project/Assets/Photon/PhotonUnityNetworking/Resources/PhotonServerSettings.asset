@@ -68,6 +68,8 @@ MonoBehaviour:
   - ResetGameForAll
   - EnableWinnerButton
   - NotifyWinnerRequest
+  - SetPlayer1Sprite
+  - SetPlayer2Sprite
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

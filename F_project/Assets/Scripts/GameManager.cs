@@ -2,6 +2,8 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public static GameManager instance;
@@ -38,6 +40,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     private bool isWinner = false;
     private bool isLoser = false;
 
+    public Image winnerImage;
+    public Image loserImage;
+    public Sprite player1Sprite;
+    public Sprite player2Sprite;
+    private Dictionary<int, Sprite> playerSprites = new Dictionary<int, Sprite>();
+
+
 
     void Awake()
     {
@@ -52,15 +61,17 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (PhotonNetwork.IsMasterClient)
             {
                 player1ID = PhotonNetwork.LocalPlayer.ActorNumber;
+                photonView.RPC("SetPlayer1Sprite", RpcTarget.AllBuffered, player1ID);
                 Debug.Log($"🎯 Me asigno como Player 1 - ID: {player1ID}");
 
                 // Enviar a los demás jugadores quién es Player 1
-                photonView.RPC("SetPlayer1ID", RpcTarget.OthersBuffered, player1ID);
+                //photonView.RPC("SetPlayer1ID", RpcTarget.OthersBuffered, player1ID);
             }
             else
             {
                 // Pedir al MasterClient que me asigne como Player 2
                 photonView.RPC("RequestPlayer2ID", RpcTarget.MasterClient, PhotonNetwork.LocalPlayer.ActorNumber);
+
             }
 
             myPlayerID = PhotonNetwork.LocalPlayer.ActorNumber;
@@ -79,9 +90,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         startTime = Time.time;
 
-        loserButton.gameObject.SetActive(false);
-        winnerButton.gameObject.SetActive(false);
-        winnerButton.interactable = false;
+        // loserButton.gameObject.SetActive(false);
+        // winnerButton.gameObject.SetActive(false);
+        // winnerButton.interactable = false;
     }
 
 
@@ -128,12 +139,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 4) /////////////////////////////////LUIS
+        if (scorePlayer1 >= 1) /////////////////////////////////LUIS
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID);
         }
-        else if (scorePlayer2 >= 10)/////////////////////LUIS
+        else if (scorePlayer2 >= 1)/////////////////////LUIS
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID);
@@ -181,6 +192,14 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
+            // // Mostrar la imagen del ganador
+            // if (playerSprites.ContainsKey(winnerID))
+            // {
+            //     winnerImage.sprite = playerSprites[winnerID];
+            // }
+
+            winnerImage.sprite = (winnerID == player1ID) ? player1Sprite : player2Sprite;
+
             // Solo el ganador verá la pantalla de victoria
             gamePanel.SetActive(false);
             background.SetActive(true);
@@ -189,8 +208,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             winTimeMatch.text = $"Tiempo de partida: {formattedTime}";
             FreezeGame();
 
-            winnerButton.gameObject.SetActive(true);
-            winnerButton.interactable = false; // El ganador no puede iniciar la nueva partida
+            // winnerButton.gameObject.SetActive(true);
+            // winnerButton.interactable = false; // El ganador no puede iniciar la nueva partida
         }
         else
         {
@@ -209,6 +228,14 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
+            // // Mostrar la imagen del perdedor
+            // if (playerSprites.ContainsKey(loserID))
+            // {
+            //     loserImage.sprite = playerSprites[loserID];
+            // }
+
+            loserImage.sprite = (loserID == player1ID) ? player1Sprite : player2Sprite;
+
             // Solo el perdedor verá la pantalla de derrota
             gamePanel.SetActive(false);
             background.SetActive(true);
@@ -217,7 +244,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             loseTimeMatch.text = $"Tiempo de partida: {formattedTime}";
             FreezeGame();
 
-            loserButton.gameObject.SetActive(true);
+            // loserButton.gameObject.SetActive(true);
         }
         else
         {
@@ -295,5 +322,29 @@ public class GameManager : MonoBehaviourPunCallbacks
         isWinner = false;
         isLoser = false;
     }
+
+    public void ExitToMenu()
+    {
+        UIManager.instance.CargarEscenaJuego("Felipe");
+        PhotonNetwork.LeaveRoom(); // Sale de la sala
+                                   //PhotonNetwork.LoadLevel("Felipe"); // Carga la escena del menú
+    }
+
+
+
+    [PunRPC]
+    void SetPlayer1Sprite(int playerID)
+    {
+        player1ID = playerID;
+        playerSprites[player1ID] = player1Sprite;
+    }
+
+    [PunRPC]
+    void SetPlayer2Sprite(int playerID)
+    {
+        player2ID = playerID;
+        playerSprites[player2ID] = player2Sprite;
+    }
+
 
 }
