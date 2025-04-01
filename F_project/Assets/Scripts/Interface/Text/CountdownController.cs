@@ -27,7 +27,7 @@ public class CountdownController : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f); // Esperar 1 segundo antes de mostrar el 3
+        yield return new WaitForSeconds(2f); // Esperar 1 segundo antes de mostrar el 3
 
         countdownPanel.SetActive(true); // Mostrar el contador
 

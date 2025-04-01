@@ -65,6 +65,7 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(22, isEnglish ? "Score" : "Puntaje");
         tempDictionary.Add(23, isEnglish ? "Time" : "Tiempo");
         tempDictionary.Add(24, isEnglish ? "¡Go!" : "¡inicia!");
+        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");       
 
 
         return tempDictionary;
