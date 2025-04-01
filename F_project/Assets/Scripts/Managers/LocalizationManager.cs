@@ -60,10 +60,6 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(17, isEnglish ? "Back" : "Volver");
         tempDictionary.Add(18, isEnglish ? "Credits" : "Créditos");
         tempDictionary.Add(19, isEnglish ? "Brightness" : "Brillo");
-        tempDictionary.Add(20, isEnglish ? "You Win !!!!" : "Ganaste !!!!");
-        tempDictionary.Add(21, isEnglish ? "You Lose !!!!" : "Perdiste !!!!");
-        tempDictionary.Add(22, isEnglish ? "Score" : "Puntaje");
-        tempDictionary.Add(23, isEnglish ? "Time" : "Tiempo");
         tempDictionary.Add(24, isEnglish ? "¡Go!" : "¡inicia!");
         tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");   
         //How to play    
@@ -77,6 +73,31 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(32, isEnglish ? "Miguel Ariza (3D Models and Gameplay Mechanics)" : "Miguel Ariza (Modelos 3D y Mecánicas de Jugabilidad)");
         tempDictionary.Add(33, isEnglish ? "Luis Carlos Villalobos (Sounds, UI, and Multiplayer Connection)" : "Luis Carlos Villalobos (Sonidos, UI y Conexión Multijugador)");
         tempDictionary.Add(34, isEnglish ? "Felipe Gualteros Viasus (UI, Configuration, and Aesthetic Design)" : "Felipe Gualteros  Viasus (UI, Configuración y Diseño Estético)");
+
+        //Samir Scene
+        tempDictionary.Add(35, isEnglish ? "Create Room" : "Crear Sala"); 
+        tempDictionary.Add(36, isEnglish ? "Enter room code" : "Ingrese número de sala"); 
+        tempDictionary.Add(37, isEnglish ? "Join Room" : "Unirse a la sala"); 
+        tempDictionary.Add(38, isEnglish ? "Room code" : "Codigo de sala"); 
+        tempDictionary.Add(39, isEnglish ? "Players in room:" : "Jugadores en sala");
+        tempDictionary.Add(40, isEnglish ? "Play" : "Jugar");
+        tempDictionary.Add(41, isEnglish ? "Or" : "O");
+
+        //Game Scene Win Panel and Lose panel 
+        tempDictionary.Add(20, isEnglish ? "You Win !!!!" : "Ganaste !!!!");
+        tempDictionary.Add(21, isEnglish ? "You Lose !!!!" : "Perdiste !!!!");
+        tempDictionary.Add(22, isEnglish ? "Score" : "Puntaje");
+        tempDictionary.Add(23, isEnglish ? "Time" : "Tiempo");
+        tempDictionary.Add(42, isEnglish ? "Accept Rematch " : "Aceptar Revancha ");
+        tempDictionary.Add(43, isEnglish ? "Main Menu" : "Menu Principal");
+        tempDictionary.Add(44, isEnglish ? "*If the other player requests another game, the accept button will be enabled." : "*Si el otro jugador solicita otra partida, el botón de aceptar se habilitará.");
+        tempDictionary.Add(45, isEnglish ? "Recuest Rematch" : "Pedir Revancha");
+        tempDictionary.Add(46, isEnglish ? "*If the other player requests another game, the accept button will be enabled." : "*Si el otro jugador solicita otra partida, el botón de aceptar se habilitará.");
+       // canvas Game scene
+        tempDictionary.Add(47, isEnglish ? "player 1 " : "Jugador 1 ");
+        tempDictionary.Add(48, isEnglish ? "player 2 " : "Jugador 2 ");
+        
+
 
         return tempDictionary;
     }
