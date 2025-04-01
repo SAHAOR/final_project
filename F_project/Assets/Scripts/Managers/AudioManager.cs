@@ -9,9 +9,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance { get; private set; }
 
     [SerializeField] private AudioMixer master; // Controlador del audio mixer
-    [SerializeField] private AudioSource sfxAudio, musicAudio; // AudioSources para efectos de sonido y música
+    [SerializeField] private AudioSource sfxAudio, musicAudio; // AudioSources para efectos de sonido y mï¿½sica
     [SerializeField] private Volume volumeController; // Referencia al controlador de volumen
-    public Sound[] musicSounds, sfxSounds; // Arreglos que almacenan los sonidos de música y efectos
+    public Sound[] musicSounds, sfxSounds; // Arreglos que almacenan los sonidos de mï¿½sica y efectos
 
     private void Awake()
     {
@@ -46,24 +46,24 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se encontró el script Volume en la escena.");
+            Debug.LogWarning("No se encontrï¿½ el script Volume en la escena.");
         }
 
-        // Se suscribe al evento de carga de escena para cambiar la música automáticamente
+        // Se suscribe al evento de carga de escena para cambiar la mï¿½sica automï¿½ticamente
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // Si esta es la primera escena al iniciar el juego, se asegura de que la música inicie
+        // Si esta es la primera escena al iniciar el juego, se asegura de que la mï¿½sica inicie
         PlayMusicByScene();
 
     }
 
-    // Método que se llama cuando se carga una nueva escena
+    // Mï¿½todo que se llama cuando se carga una nueva escena
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         PlayMusicByScene();
     }
 
-    // Determina qué música reproducir según la escena actual
+    // Determina quï¿½ mï¿½sica reproducir segï¿½n la escena actual
     public void PlayMusicByScene()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -71,25 +71,25 @@ public class AudioManager : MonoBehaviour
         switch (sceneName)
         {
             case "Felipe":
-                PlayMusic("example menu theme 2"); // Reproduce la música asignada al menú
+                PlayMusic("example menu theme 2"); // Reproduce la mï¿½sica asignada al menï¿½
                 break;
             case "UIGameScene":
-                PlayMusic("Game Theme"); // Reproduce la música asignada al juego
+                PlayMusic("Game Theme"); // Reproduce la mï¿½sica asignada al juego
                 break;
             default:
-                Debug.LogWarning($"No se ha asignado una música para la escena {sceneName}");
+                Debug.LogWarning($"No se ha asignado una musica para la escena {sceneName}");
                 break;
         }
     }
 
-    // Método para reproducir un efecto de sonido (SFX) según el nombre
+    // Mï¿½todo para reproducir un efecto de sonido (SFX) segï¿½n el nombre
     public void PlaySfx(string name)
     {
         // Busca el sonido en el array de efectos de sonido
         Sound sfx = Array.Find(sfxSounds, x => x.nameSound == name);
         if (sfx == null)
         {
-            Debug.Log("Sound Not Found");
+            Debug.Log("SFX Not Found");
         }
         else
         {
@@ -97,16 +97,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Método para reproducir música según el nombre
+    // Mï¿½todo para reproducir mï¿½sica segï¿½n el nombre
     public void PlayMusic(string name)
     {
-        // Busca la música en el array de música
+        // Busca la mï¿½sica en el array de mï¿½sica
         Sound music = Array.Find(musicSounds, x => x.nameSound == name);
         if (music == null)
         {
-            Debug.Log("Sound Not Found");
+            Debug.Log("Music Not Found");
         }
-        // Evita reiniciar la misma canción si ya está sonando
+        // Evita reiniciar la misma canciï¿½n si ya estï¿½ sonando
         if (musicAudio.clip == music.clip && musicAudio.isPlaying) return;
 
         musicAudio.Stop();
@@ -115,7 +115,7 @@ public class AudioManager : MonoBehaviour
         musicAudio.loop = true;
     }
 
-    // Método para reiniciar la música actual
+    // Mï¿½todo para reiniciar la mï¿½sica actual
     public void RestartMusic()
     {
         musicAudio.Stop();

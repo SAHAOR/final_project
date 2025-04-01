@@ -65,8 +65,18 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(22, isEnglish ? "Score" : "Puntaje");
         tempDictionary.Add(23, isEnglish ? "Time" : "Tiempo");
         tempDictionary.Add(24, isEnglish ? "¡Go!" : "¡inicia!");
-        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");       
-
+        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");   
+        //How to play    
+        tempDictionary.Add(26, isEnglish ? "Welcome to Splashy!\n\nIt's a competitive multiplayer game where speed and strategy are key. The goal is to reach 100 points before your opponent by clicking on the correct fruit." : "¡Bienvenido a Splashy!\n\nEs un juego multijugador competitivo donde la rapidez y la estrategia son clave. El objetivo es llegar a 100 puntos antes que tu oponente, haciendo clic en la fruta correcta.");
+        tempDictionary.Add(27, isEnglish ? "-One player must create a game, which will generate a room code.\n\n-The other player must enter the code to join the same game.\n\n-When both of you are ready, press the play button to begin!" : "-Un jugador debe crear una partida, lo que generará un código de sala.\n\n-El otro jugador debe ingresar el código para unirse a la misma partida.\n\n-Cuando ambos estén listos, ¡presione el botón de jugar para comenzar!");
+        tempDictionary.Add(28, isEnglish ? "-Each player has their own assigned fruit.\n\n-Clicking on your fruit will multiply it and give you 1 point.\n\n-Tip: If you click on your opponent's fruit, it will disappear and they will lose that fruit." : "-Cada jugador tiene su propia fruta asignada.\n\n-Hacer clic en tu fruta la multiplicará y te dará 1 punto.\n\n-Concejo: Si haces clic en la fruta de tu rival, desaparecerá y el perderá esa fruta.");
+        tempDictionary.Add(29, isEnglish ? "-Be quick to click your fruit and accumulate points quickly.\n\n-Use the tactic of eliminating your opponent's fruit to delay him.\n\n-Keep an eye on the distribution of fruits on the screen." : "-Sé rápido para clickear tu fruta y acumular puntos rápidamente.\n\n-Usa la táctica de eliminar la fruta de tu rival para retrasarlo.\n\n-Mantente atento a la distribución de las frutas en pantalla.");
+        tempDictionary.Add(30, isEnglish ? "-The first player to reach 100 points will be the winner.\n\n-Practice your speed and accuracy to improve your performance." : "-El primer jugador en alcanzar 100 puntos será el ganador.\n\n-Practica tu velocidad y precisión para mejorar tu rendimiento.");
+        //Credits
+        tempDictionary.Add(31, isEnglish ? "Samir Hassan Ordoñez (Project Manager and Multiplayer Connection)" : "Samir Hassan Ordoñez (Project Manager y Conexión Multijugador)");
+        tempDictionary.Add(32, isEnglish ? "Miguel Ariza (3D Models and Gameplay Mechanics)" : "Miguel Ariza (Modelos 3D y Mecánicas de Jugabilidad)");
+        tempDictionary.Add(33, isEnglish ? "Luis Carlos Villalobos (Sounds, UI, and Multiplayer Connection)" : "Luis Carlos Villalobos (Sonidos, UI y Conexión Multijugador)");
+        tempDictionary.Add(34, isEnglish ? "Felipe Gualteros Viasus (UI, Configuration, and Aesthetic Design)" : "Felipe Gualteros  Viasus (UI, Configuración y Diseño Estético)");
 
         return tempDictionary;
     }
