@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Fruit
+  - InformationBetweenScenes
   - Bullet
+  - Fruit
   - Wall
+  - Object
   layers:
   - Default
   - TransparentFX
