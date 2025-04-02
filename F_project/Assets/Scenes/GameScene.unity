@@ -1150,7 +1150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 221}
+  m_AnchoredPosition: {x: 298, y: 221}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510208479
@@ -1287,7 +1287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172, y: 225}
+  m_AnchoredPosition: {x: -331, y: 225}
   m_SizeDelta: {x: 90.6, y: 29.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724549244
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTextPlayer1: {fileID: 724549244}
   scoreTextPlayer2: {fileID: 1749552866}
-  TimeMatch: {fileID: 0}
+  TimeMatch: {fileID: 510208479}
   winningScore: 100
   spawnPoint: {fileID: 1280420180051425618}
   winPanel: {fileID: 250383098}
@@ -1961,7 +1961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: 225}
+  m_AnchoredPosition: {x: -24, y: 225}
   m_SizeDelta: {x: 90.6, y: 29.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749552866
