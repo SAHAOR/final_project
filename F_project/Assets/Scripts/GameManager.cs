@@ -161,12 +161,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 3)
+        if (scorePlayer1 >= 100)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID, scorePlayer1);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID, scorePlayer2);
         }
-        else if (scorePlayer2 >= 3)
+        else if (scorePlayer2 >= 100)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID, scorePlayer2);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID, scorePlayer1);
