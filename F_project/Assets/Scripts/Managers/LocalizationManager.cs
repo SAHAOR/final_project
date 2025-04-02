@@ -102,6 +102,8 @@ public class LocalizationManager : MonoBehaviour
         //Cargando
         tempDictionary.Add(49, isEnglish ? "Load" : "Carg");
         tempDictionary.Add(50, isEnglish ? "ing" : "ando");
+        //Error
+        tempDictionary.Add(51, isEnglish ? "The code you entered does not exist." : "El codigo que introdujiste no existe.");
         
         //Game Scene Lose panel     
         tempDictionary.Add(51, isEnglish ? "Score" : "Puntaje");
