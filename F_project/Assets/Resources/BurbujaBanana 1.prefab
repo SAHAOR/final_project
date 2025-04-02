@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4595275551444798888}
   - component: {fileID: -2650305592422416205}
   m_Layer: 0
-  m_Name: BurbujaBanana
+  m_Name: BurbujaBanana 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

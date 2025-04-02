@@ -97,12 +97,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     void Update()
-    {   
+    {
         elapsedTime += Time.deltaTime; // Acumula el tiempo transcurrido
         UpdateTime(elapsedTime);
     }
 
-    
+
 
     [PunRPC]
     void SetPlayer1ID(int p1ID)
@@ -253,7 +253,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             defeatScoreText.text = $"Puntaje Final: {scorePlayer2}";
             loseTimeMatch.text = $"Tiempo de partida: {formattedTime}";
             Debug.Log($"⛔ El puntaje del perdedor es:  {defeatScoreText.text}");
-            Debug.Log($"⛔ El Tiempo del perdedor es:  {loseTimeMatch.text }");
+            Debug.Log($"⛔ El Tiempo del perdedor es:  {loseTimeMatch.text}");
             // FreezeGame();
 
             // loserButton.gameObject.SetActive(true);
@@ -277,14 +277,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-      void UpdateTime(float time)// Muestra el tiempo en el Game Scene
+    void UpdateTime(float time)// Muestra el tiempo en el Game Scene
     {
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);
-        TimeMatch.text=$"{minutes:00}:{seconds:00}";
+        TimeMatch.text = $"{minutes:00}:{seconds:00}";
     }
 
-  
+
 
     // // 🟢 EL PERDEDOR SOLICITA UNA NUEVA PARTIDA
     // public void RequestNewGame()
