@@ -69,10 +69,10 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(29, isEnglish ? "-Be quick to click your fruit and accumulate points quickly.\n\n-Use the tactic of eliminating your opponent's fruit to delay him.\n\n-Keep an eye on the distribution of fruits on the screen." : "-Sé rápido para clickear tu fruta y acumular puntos rápidamente.\n\n-Usa la táctica de eliminar la fruta de tu rival para retrasarlo.\n\n-Mantente atento a la distribución de las frutas en pantalla.");
         tempDictionary.Add(30, isEnglish ? "-The first player to reach 100 points will be the winner.\n\n-Practice your speed and accuracy to improve your performance." : "-El primer jugador en alcanzar 100 puntos será el ganador.\n\n-Practica tu velocidad y precisión para mejorar tu rendimiento.");
         //Credits
-        tempDictionary.Add(31, isEnglish ? "Samir Hassan Ordoñez (Project Manager and Multiplayer Connection)" : "Samir Hassan Ordoñez (Project Manager y Conexión Multijugador)");
-        tempDictionary.Add(32, isEnglish ? "Miguel Ariza (3D Models and Gameplay Mechanics)" : "Miguel Ariza (Modelos 3D y Mecánicas de Jugabilidad)");
-        tempDictionary.Add(33, isEnglish ? "Luis Carlos Villalobos (Sounds, UI, and Multiplayer Connection)" : "Luis Carlos Villalobos (Sonidos, UI y Conexión Multijugador)");
-        tempDictionary.Add(34, isEnglish ? "Felipe Gualteros Viasus (UI, Configuration, and Aesthetic Design)" : "Felipe Gualteros  Viasus (UI, Configuración y Diseño Estético)");
+        tempDictionary.Add(31, isEnglish ? "Samir Hassan Ordoñez (Project Manager, game designer, network architect, gameplay programmer, VFX, devops)" : "Samir Hassan Ordoñez (Gestión de proyecto, diseño de juego, arquitecto de red, gameplay, VFX, devops)");
+        tempDictionary.Add(32, isEnglish ? "Miguel Ariza (Technical artist, 3D models, shaders and gameplay mechanics)" : "Miguel Ariza (Artista técnico, modelos 3D, shaders y mecánicas de jugabilidad)");
+        tempDictionary.Add(33, isEnglish ? "Luis Carlos Villalobos (Sound/SFX engineer, UI and backend programmer)" : "Luis Carlos Villalobos (Ingeniero de sonido/SFX, desarrollador backend y UI)");
+        tempDictionary.Add(34, isEnglish ? "Felipe Gualteros Viasus (UI programmer and designer, backend configuration, aesthetic design)" : "Felipe Gualteros  Viasus (Diseñador y desarrollador de UI, programador de configuraciones y diseño estético)");
 
         //Samir Scene
         tempDictionary.Add(35, isEnglish ? "Create Room" : "Crear Sala"); 
