@@ -93,6 +93,9 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(44, isEnglish ? "*If the other player requests another game, the accept button will be enabled." : "*Si el otro jugador solicita otra partida, el botón de aceptar se habilitará.");
         tempDictionary.Add(45, isEnglish ? "Recuest Rematch" : "Pedir Revancha");
         tempDictionary.Add(46, isEnglish ? "*If the other player requests another game, the accept button will be enabled." : "*Si el otro jugador solicita otra partida, el botón de aceptar se habilitará.");
+
+      
+      
        // canvas Game scene
         tempDictionary.Add(47, isEnglish ? "player 1 " : "Jugador 1 ");
         tempDictionary.Add(48, isEnglish ? "player 2 " : "Jugador 2 ");
@@ -100,7 +103,9 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(49, isEnglish ? "Load" : "Carg");
         tempDictionary.Add(50, isEnglish ? "ing" : "ando");
         
-
+        //Game Scene Lose panel     
+        tempDictionary.Add(51, isEnglish ? "Score" : "Puntaje");
+        tempDictionary.Add(52, isEnglish ? "Time" : "Tiempo");
 
         return tempDictionary;
     }

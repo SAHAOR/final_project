@@ -209,6 +209,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.LocalPlayer.ActorNumber == winnerID)
         {
+
+
             isWinner = true;
 
             float elapsedTime = Time.time - startTime;
@@ -230,6 +232,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
+
             // Si no es el ganador, desactivamos la pantalla de victoria
             winPanel.SetActive(false);
         }
@@ -240,8 +243,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.LocalPlayer.ActorNumber == loserID)
         {
+            Debug.Log("✅ Este cliente es el perdedor.");
             isLoser = true;
 
+            // Calcular el tiempo transcurrido
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
@@ -253,14 +258,20 @@ public class GameManager : MonoBehaviourPunCallbacks
             background.SetActive(true);
             losePanel.SetActive(true);
 
-            defeatScoreText.text = $"Puntaje Final: {loserScore}";
-            loseTimeMatch.text = $"Tiempo de partida: {formattedTime}";
+            // Obtener los textos traducidos desde LocalizationManager
+            string scoreText = LocalizationManager.Instance.GetText(51); // Clave para "Puntaje"
+            string timeText = LocalizationManager.Instance.GetText(52);  // Clave para "Tiempo"
+
+            // Actualizar los textos de puntaje y tiempo
+            defeatScoreText.text = $"{scoreText}: {loserScore}";
+            loseTimeMatch.text = $"{timeText}: {formattedTime}";
 
             Debug.Log($"😢 El puntaje del perdedor es: {defeatScoreText.text}");
             Debug.Log($"⏳ El tiempo del perdedor es: {loseTimeMatch.text}");
         }
         else
         {
+            Debug.Log("❌ Este cliente NO es el perdedor.");
             // Si no es el perdedor, desactivamos la pantalla de derrota
             losePanel.SetActive(false);
         }
