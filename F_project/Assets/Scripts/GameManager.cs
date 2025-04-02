@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"📌 Mi Player ID es {myPlayerID}");
 
             PhotonNetwork.Instantiate("Player", spawnPoint.position, Quaternion.identity);
-            
+
         }
 
         Debug.Log($"👥 Número total de jugadores en la sala: {PhotonNetwork.CurrentRoom.PlayerCount}");
@@ -161,15 +161,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 100) /////////////////////////////////LUIS
+        if (scorePlayer1 >= 3)
         {
-            photonView.RPC("SetWinner", RpcTarget.All, player1ID);
-            photonView.RPC("SetLoser", RpcTarget.All, player2ID);
+            photonView.RPC("SetWinner", RpcTarget.All, player1ID, scorePlayer1);
+            photonView.RPC("SetLoser", RpcTarget.All, player2ID, scorePlayer2);
         }
-        else if (scorePlayer2 >= 100)/////////////////////LUIS
+        else if (scorePlayer2 >= 3)
         {
-            photonView.RPC("SetWinner", RpcTarget.All, player2ID);
-            photonView.RPC("SetLoser", RpcTarget.All, player1ID);
+            photonView.RPC("SetWinner", RpcTarget.All, player2ID, scorePlayer2);
+            photonView.RPC("SetLoser", RpcTarget.All, player1ID, scorePlayer1);
         }
 
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SetWinner(int winnerID)
+    void SetWinner(int winnerID, int winnerScore)
     {
         if (PhotonNetwork.LocalPlayer.ActorNumber == winnerID)
         {
@@ -214,26 +214,19 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
-            // // Mostrar la imagen del ganador
-            // if (playerSprites.ContainsKey(winnerID))
-            // {
-            //     winnerImage.sprite = playerSprites[winnerID];
-            // }
-
+            // Mostrar la imagen del ganador
             winnerImage.sprite = (winnerID == player1ID) ? player1Sprite : player2Sprite;
 
-            // Solo el ganador verá la pantalla de victoria
+            // Configurar la pantalla de victoria
             gamePanel.SetActive(false);
             background.SetActive(true);
             winPanel.SetActive(true);
-            victoryScoreText.text = $"Puntaje Final: {scorePlayer1}";
-            winTimeMatch.text = $"Tiempo de partida: {formattedTime}";
-            Debug.Log($"⛔ El puntaje del Ganador es:  {victoryScoreText.text}");
-            Debug.Log($"⛔ El Tiempo del Ganador es:  {winTimeMatch.text}");
-            //FreezeGame();
 
-            // winnerButton.gameObject.SetActive(true);
-            // winnerButton.interactable = false; // El ganador no puede iniciar la nueva partida
+            victoryScoreText.text = $"Puntaje Final: {winnerScore}";
+            winTimeMatch.text = $"Tiempo de partida: {formattedTime}";
+
+            Debug.Log($"🎉 El puntaje del ganador es: {victoryScoreText.text}");
+            Debug.Log($"⏳ El tiempo del ganador es: {winTimeMatch.text}");
         }
         else
         {
@@ -243,7 +236,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SetLoser(int loserID)
+    void SetLoser(int loserID, int loserScore)
     {
         if (PhotonNetwork.LocalPlayer.ActorNumber == loserID)
         {
@@ -252,25 +245,19 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
-            // // Mostrar la imagen del perdedor
-            // if (playerSprites.ContainsKey(loserID))
-            // {
-            //     loserImage.sprite = playerSprites[loserID];
-            // }
-
+            // Mostrar la imagen del perdedor
             loserImage.sprite = (loserID == player1ID) ? player1Sprite : player2Sprite;
 
-            // Solo el perdedor verá la pantalla de derrota
+            // Configurar la pantalla de derrota
             gamePanel.SetActive(false);
             background.SetActive(true);
             losePanel.SetActive(true);
-            defeatScoreText.text = $"Puntaje Final: {scorePlayer2}";
-            loseTimeMatch.text = $"Tiempo de partida: {formattedTime}";
-            Debug.Log($"⛔ El puntaje del perdedor es:  {defeatScoreText.text}");
-            Debug.Log($"⛔ El Tiempo del perdedor es:  {loseTimeMatch.text}");
-            // FreezeGame();
 
-            // loserButton.gameObject.SetActive(true);
+            defeatScoreText.text = $"Puntaje Final: {loserScore}";
+            loseTimeMatch.text = $"Tiempo de partida: {formattedTime}";
+
+            Debug.Log($"😢 El puntaje del perdedor es: {defeatScoreText.text}");
+            Debug.Log($"⏳ El tiempo del perdedor es: {loseTimeMatch.text}");
         }
         else
         {
