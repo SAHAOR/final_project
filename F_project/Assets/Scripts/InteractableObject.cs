@@ -18,7 +18,7 @@ public class InteractableObject : MonoBehaviourPun
     void Start()
     {
         Debug.Log($"🚀 {gameObject.name} ha sido instanciado correctamente.");
-        StartCoroutine(AutoDestroyAfterTime(10f)); // Iniciar el temporizador de destrucción
+        StartCoroutine(AutoDestroyAfterTime(5f)); // Iniciar el temporizador de destrucción
 
         if (photonView.Owner != null) // Si ya tiene un dueño, no hacer nada
         return;
@@ -99,7 +99,7 @@ public class InteractableObject : MonoBehaviourPun
 
         photonView.RPC("SetCanSpawn", RpcTarget.AllBuffered, false); // Desactivar generación en todos los clientes
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0); // Esperar un poco antes de reactivar la generación
 
         if (photonView == null || !photonView.IsMine) yield break;
 

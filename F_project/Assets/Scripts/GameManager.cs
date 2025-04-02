@@ -259,8 +259,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             losePanel.SetActive(true);
 
             // Obtener los textos traducidos desde LocalizationManager
-            string scoreText = LocalizationManager.Instance.GetText(51); // Clave para "Puntaje"
-            string timeText = LocalizationManager.Instance.GetText(52);  // Clave para "Tiempo"
+            string scoreText = LocalizationManager.Instance.GetText(52); // Clave para "Puntaje"
+            string timeText = LocalizationManager.Instance.GetText(53);  // Clave para "Tiempo"
 
             // Actualizar los textos de puntaje y tiempo
             defeatScoreText.text = $"{scoreText}: {loserScore}";

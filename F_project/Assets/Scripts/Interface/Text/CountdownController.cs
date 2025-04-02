@@ -15,7 +15,20 @@ public class CountdownController : MonoBehaviour
     void Start()
     {
         countdownPanel.SetActive(false); // Ocultar el panel al inicio
+        StartCoroutine(DisableMouseTemporarily(5f)); 
         StartCoroutine(WaitForCurtainAndStartCountdown());
+
+    }
+
+     IEnumerator DisableMouseTemporarily(float seconds)
+    {
+        Cursor.lockState = CursorLockMode.Locked; // Bloquea el cursor
+        Cursor.visible = false; // Lo oculta
+
+        yield return new WaitForSeconds(seconds);
+
+        Cursor.lockState = CursorLockMode.None; // Desbloquea el cursor
+        Cursor.visible = true; // Lo hace visible
     }
 
     IEnumerator WaitForCurtainAndStartCountdown()

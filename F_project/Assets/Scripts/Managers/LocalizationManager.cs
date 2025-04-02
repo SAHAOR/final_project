@@ -106,8 +106,8 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(51, isEnglish ? "The code you entered does not exist." : "El codigo que introdujiste no existe.");
         
         //Game Scene Lose panel     
-        tempDictionary.Add(51, isEnglish ? "Score" : "Puntaje");
-        tempDictionary.Add(52, isEnglish ? "Time" : "Tiempo");
+        tempDictionary.Add(52, isEnglish ? "Score" : "Puntaje");
+        tempDictionary.Add(53, isEnglish ? "Time" : "Tiempo");
 
         return tempDictionary;
     }
