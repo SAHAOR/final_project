@@ -139,12 +139,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 1) /////////////////////////////////LUIS
+        if (scorePlayer1 >= 4) /////////////////////////////////LUIS
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID);
         }
-        else if (scorePlayer2 >= 1)/////////////////////LUIS
+        else if (scorePlayer2 >= 4)/////////////////////LUIS
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID);
@@ -206,7 +206,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             winPanel.SetActive(true);
             victoryScoreText.text = $"Puntaje Final: {scorePlayer1}";
             winTimeMatch.text = $"Tiempo de partida: {formattedTime}";
-            FreezeGame();
+            Debug.Log($"⛔ El puntaje del Ganador es:  {victoryScoreText.text}");
+            Debug.Log($"⛔ El Tiempo del Ganador es:  {winTimeMatch.text}");
+            //FreezeGame();
 
             // winnerButton.gameObject.SetActive(true);
             // winnerButton.interactable = false; // El ganador no puede iniciar la nueva partida
@@ -242,7 +244,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             losePanel.SetActive(true);
             defeatScoreText.text = $"Puntaje Final: {scorePlayer2}";
             loseTimeMatch.text = $"Tiempo de partida: {formattedTime}";
-            FreezeGame();
+            Debug.Log($"⛔ El puntaje del perdedor es:  {defeatScoreText.text}");
+            Debug.Log($"⛔ El Tiempo del perdedor es:  {loseTimeMatch.text }");
+            // FreezeGame();
 
             // loserButton.gameObject.SetActive(true);
         }

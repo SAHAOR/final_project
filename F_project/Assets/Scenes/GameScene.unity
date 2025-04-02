@@ -231,9 +231,37 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1352384768}
+    - target: {fileID: 4719210704029406549, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_Name
+      value: MainPanelLoser
+      objectReference: {fileID: 0}
     - target: {fileID: 4793166805484016421, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175171297806717461, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_text
+      value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175171297806717461, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175171297806717461, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175171297806717461, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175171297806717461, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175171297806717461, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293980400
       objectReference: {fileID: 0}
     - target: {fileID: 6348860985980487036, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -241,12 +269,36 @@ PrefabInstance:
       objectReference: {fileID: 1352384768}
     - target: {fileID: 6449305573373316406, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7234319745325097671, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1352384768}
+    - target: {fileID: 7638701451773992080, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_Name
+      value: TimeLoserTitleText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219687945756272890, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219687945756272890, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219687945756272890, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219687945756272890, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293980400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448458861935170699, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
+      propertyPath: m_Name
+      value: ScoreLoserTitleText
+      objectReference: {fileID: 0}
     - target: {fileID: 8774740081967277072, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_Name
       value: CanvasWinOrLose
