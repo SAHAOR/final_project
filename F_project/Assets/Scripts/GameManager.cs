@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections;
+
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public static GameManager instance;
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private Dictionary<int, Sprite> playerSprites = new Dictionary<int, Sprite>();
 
     private float elapsedTime = 0f;
+    private bool isCounting = false;
 
     void Awake()
     {
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        StartCoroutine(StartTimerAfterDelay(4.2f));
         if (PhotonNetwork.IsConnectedAndReady)
         {
             if (PhotonNetwork.IsMasterClient)
@@ -79,6 +83,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"📌 Mi Player ID es {myPlayerID}");
 
             PhotonNetwork.Instantiate("Player", spawnPoint.position, Quaternion.identity);
+            
         }
 
         Debug.Log($"👥 Número total de jugadores en la sala: {PhotonNetwork.CurrentRoom.PlayerCount}");
@@ -98,8 +103,17 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        elapsedTime += Time.deltaTime; // Acumula el tiempo transcurrido
-        UpdateTime(elapsedTime);
+        if (isCounting)
+        {
+            elapsedTime += Time.deltaTime;
+            UpdateTime(elapsedTime);
+        }
+    }
+
+    IEnumerator StartTimerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isCounting = true;
     }
 
 
@@ -147,12 +161,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 4) /////////////////////////////////LUIS
+        if (scorePlayer1 >= 100) /////////////////////////////////LUIS
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID);
         }
-        else if (scorePlayer2 >= 4)/////////////////////LUIS
+        else if (scorePlayer2 >= 100)/////////////////////LUIS
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID);
@@ -186,8 +200,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         scorePlayer1 = score1;
         scorePlayer2 = score2;
 
-        scoreTextPlayer1.text = $"Jugador 1: {scorePlayer1}";
-        scoreTextPlayer2.text = $"Jugador 2: {scorePlayer2}";
+        scoreTextPlayer1.text = $"{scorePlayer1}";
+        scoreTextPlayer2.text = $"{scorePlayer2}";
     }
 
     [PunRPC]

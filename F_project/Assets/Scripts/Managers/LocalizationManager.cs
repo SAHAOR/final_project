@@ -96,6 +96,9 @@ public class LocalizationManager : MonoBehaviour
        // canvas Game scene
         tempDictionary.Add(47, isEnglish ? "player 1 " : "Jugador 1 ");
         tempDictionary.Add(48, isEnglish ? "player 2 " : "Jugador 2 ");
+        //Cargando
+        tempDictionary.Add(49, isEnglish ? "Load" : "Carg");
+        tempDictionary.Add(50, isEnglish ? "ing" : "ando");
         
 
 
