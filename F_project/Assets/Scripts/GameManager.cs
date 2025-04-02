@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public TextMeshProUGUI scoreTextPlayer1;
     public TextMeshProUGUI scoreTextPlayer2;
+    public TextMeshProUGUI TimeMatch;
 
     public int winningScore = 100;
     public Transform spawnPoint;
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Sprite player2Sprite;
     private Dictionary<int, Sprite> playerSprites = new Dictionary<int, Sprite>();
 
-
+    private float elapsedTime = 0f;
 
     void Awake()
     {
@@ -95,6 +96,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         // winnerButton.interactable = false;
     }
 
+    void Update()
+    {   
+        elapsedTime += Time.deltaTime; // Acumula el tiempo transcurrido
+        UpdateTime(elapsedTime);
+    }
+
+    
 
     [PunRPC]
     void SetPlayer1ID(int p1ID)
@@ -269,63 +277,72 @@ public class GameManager : MonoBehaviourPunCallbacks
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    // 🟢 EL PERDEDOR SOLICITA UNA NUEVA PARTIDA
-    public void RequestNewGame()
+      void UpdateTime(float time)// Muestra el tiempo en el Game Scene
     {
-        if (isLoser)
-        {
-            Debug.Log("📢 El perdedor solicitó nueva partida.");
-            loserButton.interactable = false;
-            photonView.RPC("EnableWinnerButton", RpcTarget.Others);
-        }
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        TimeMatch.text=$"{minutes:00}:{seconds:00}";
     }
 
-    // 🔓 HABILITAR BOTÓN DEL GANADOR
-    [PunRPC]
-    void EnableWinnerButton()
-    {
-        Debug.Log("✅ Botón del ganador habilitado.");
-        winnerButton.interactable = true;
-    }
+  
 
-    // 🔄 REINICIAR EL JUEGO CUANDO EL GANADOR CONFIRMA
-    public void RestartGame()
-    {
-        if (isWinner && winnerButton.interactable)
-        {
-            Debug.Log("🔄 Reiniciando la partida...");
+    // // 🟢 EL PERDEDOR SOLICITA UNA NUEVA PARTIDA
+    // public void RequestNewGame()
+    // {
+    //     if (isLoser)
+    //     {
+    //         Debug.Log("📢 El perdedor solicitó nueva partida.");
+    //         loserButton.interactable = false;
+    //         photonView.RPC("EnableWinnerButton", RpcTarget.Others);
+    //     }
+    // }
 
-            Time.timeScale = 1;
-            StartNewGame();
+    // // 🔓 HABILITAR BOTÓN DEL GANADOR
+    // [PunRPC]
+    // void EnableWinnerButton()
+    // {
+    //     Debug.Log("✅ Botón del ganador habilitado.");
+    //     winnerButton.interactable = true;
+    // }
 
-            photonView.RPC("ResetGameForAll", RpcTarget.AllBuffered);
-        }
-    }
+    // // 🔄 REINICIAR EL JUEGO CUANDO EL GANADOR CONFIRMA
+    // public void RestartGame()
+    // {
+    //     if (isWinner && winnerButton.interactable)
+    //     {
+    //         Debug.Log("🔄 Reiniciando la partida...");
 
-    [PunRPC]
-    void ResetGameForAll()
-    {
-        StartNewGame();
-        photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
-    }
+    //         Time.timeScale = 1;
+    //         StartNewGame();
 
-    void StartNewGame()
-    {
-        scorePlayer1 = 0;
-        scorePlayer2 = 0;
-        startTime = Time.time;
+    //         photonView.RPC("ResetGameForAll", RpcTarget.AllBuffered);
+    //     }
+    // }
 
-        winPanel.SetActive(false);
-        losePanel.SetActive(false);
-        background.SetActive(false);
+    // [PunRPC]
+    // void ResetGameForAll()
+    // {
+    //     StartNewGame();
+    //     photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
+    // }
 
-        loserButton.gameObject.SetActive(false);
-        winnerButton.gameObject.SetActive(false);
-        winnerButton.interactable = false;
+    // void StartNewGame()
+    // {
+    //     scorePlayer1 = 0;
+    //     scorePlayer2 = 0;
+    //     startTime = Time.time;
 
-        isWinner = false;
-        isLoser = false;
-    }
+    //     winPanel.SetActive(false);
+    //     losePanel.SetActive(false);
+    //     background.SetActive(false);
+
+    //     loserButton.gameObject.SetActive(false);
+    //     winnerButton.gameObject.SetActive(false);
+    //     winnerButton.interactable = false;
+
+    //     isWinner = false;
+    //     isLoser = false;
+    // }
 
     public void ExitToMenu()
     {
