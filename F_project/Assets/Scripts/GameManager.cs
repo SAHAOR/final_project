@@ -224,8 +224,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             background.SetActive(true);
             winPanel.SetActive(true);
 
-            victoryScoreText.text = $"Puntaje Final: {winnerScore}";
-            winTimeMatch.text = $"Tiempo de partida: {formattedTime}";
+            string scoreText = LocalizationManager.Instance.GetText(22); // Clave para "Puntaje"
+            string timeText = LocalizationManager.Instance.GetText(23);  // Clave para "Tiempo"
+
+            victoryScoreText.text = $"{scoreText}: {winnerScore}";
+            winTimeMatch.text = $"{timeText}: {formattedTime}";
 
             Debug.Log($"🎉 El puntaje del ganador es: {victoryScoreText.text}");
             Debug.Log($"⏳ El tiempo del ganador es: {winTimeMatch.text}");
