@@ -11,7 +11,7 @@ public class AnimationUI : MonoBehaviour
 
     public void ActivarMenuExtra ()
     {
-        LeanTween.moveX(menuExtra.GetComponent<RectTransform>(), 0, 1f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.moveX(menuExtra.GetComponent<RectTransform>(), 30, 1f).setEase(LeanTweenType.easeOutElastic);
     }
     public void EsconderMenuExtra ()
     {
