@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2603,7 +2603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7635577939154673166, guid: 65da9d8312a134441859f93b3d6f49ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3069,7 +3069,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9097829421386460488, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7917573802739577245, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
       insertIndex: -1
@@ -3278,12 +3279,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5051106248373414512, guid: 28596c7af5619f543a0a9bbfd675ab19, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051106248373414512, guid: 28596c7af5619f543a0a9bbfd675ab19, type: 3}
       propertyPath: backgroundImage
       value: 
       objectReference: {fileID: 488961247}
     - target: {fileID: 5468261650340580182, guid: 28596c7af5619f543a0a9bbfd675ab19, type: 3}
       propertyPath: m_Name
       value: BackgroundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468261650340580182, guid: 28596c7af5619f543a0a9bbfd675ab19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
