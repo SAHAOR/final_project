@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     private float elapsedTime = 0f;
     private bool isCounting = false;
 
+    public Button requestRematchButton; // Botón en la pantalla de derrota
+    public Button acceptRematchButton;  // Botón en la pantalla de victoria
+
+    private bool isRematchRequested = false; // Indica si el perdedor solicitó la revancha
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -232,6 +237,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             Debug.Log($"🎉 El puntaje del ganador es: {victoryScoreText.text}");
             Debug.Log($"⏳ El tiempo del ganador es: {winTimeMatch.text}");
+
+            // Deshabilitar el botón de aceptar revancha inicialmente
+             acceptRematchButton.interactable = false;
         }
         else
         {
@@ -271,6 +279,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             Debug.Log($"😢 El puntaje del perdedor es: {defeatScoreText.text}");
             Debug.Log($"⏳ El tiempo del perdedor es: {loseTimeMatch.text}");
+
+            // Habilitar el botón de solicitar revancha
+        requestRematchButton.interactable = true;
         }
         else
         {
@@ -301,63 +312,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
 
-    // // 🟢 EL PERDEDOR SOLICITA UNA NUEVA PARTIDA
-    // public void RequestNewGame()
-    // {
-    //     if (isLoser)
-    //     {
-    //         Debug.Log("📢 El perdedor solicitó nueva partida.");
-    //         loserButton.interactable = false;
-    //         photonView.RPC("EnableWinnerButton", RpcTarget.Others);
-    //     }
-    // }
-
-    // // 🔓 HABILITAR BOTÓN DEL GANADOR
-    // [PunRPC]
-    // void EnableWinnerButton()
-    // {
-    //     Debug.Log("✅ Botón del ganador habilitado.");
-    //     winnerButton.interactable = true;
-    // }
-
-    // // 🔄 REINICIAR EL JUEGO CUANDO EL GANADOR CONFIRMA
-    // public void RestartGame()
-    // {
-    //     if (isWinner && winnerButton.interactable)
-    //     {
-    //         Debug.Log("🔄 Reiniciando la partida...");
-
-    //         Time.timeScale = 1;
-    //         StartNewGame();
-
-    //         photonView.RPC("ResetGameForAll", RpcTarget.AllBuffered);
-    //     }
-    // }
-
-    // [PunRPC]
-    // void ResetGameForAll()
-    // {
-    //     StartNewGame();
-    //     photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
-    // }
-
-    // void StartNewGame()
-    // {
-    //     scorePlayer1 = 0;
-    //     scorePlayer2 = 0;
-    //     startTime = Time.time;
-
-    //     winPanel.SetActive(false);
-    //     losePanel.SetActive(false);
-    //     background.SetActive(false);
-
-    //     loserButton.gameObject.SetActive(false);
-    //     winnerButton.gameObject.SetActive(false);
-    //     winnerButton.interactable = false;
-
-    //     isWinner = false;
-    //     isLoser = false;
-    // }
 
     public void ExitToMenu()
     {
@@ -381,6 +335,38 @@ public class GameManager : MonoBehaviourPunCallbacks
         player2ID = playerID;
         playerSprites[player2ID] = player2Sprite;
     }
+
+    public void RequestRematch()
+    {
+        Debug.Log("🔄 El perdedor ha solicitado una revancha.");
+        photonView.RPC("NotifyRematchRequest", RpcTarget.All);
+    }
+
+    public void AcceptRematch()
+    {
+        Debug.Log("✅ El ganador ha aceptado la revancha.");
+        photonView.RPC("StartRematch", RpcTarget.All);
+    }
+
+    [PunRPC]
+void NotifyRematchRequest()
+{
+    Debug.Log("🔔 Notificación de solicitud de revancha recibida.");
+    isRematchRequested = true;
+
+    // Habilitar el botón de aceptar revancha en la pantalla del ganador
+    if (isWinner)
+    {
+        acceptRematchButton.interactable = true;
+    }
+}
+
+[PunRPC]
+void StartRematch()
+{
+    Debug.Log("🎮 Iniciando la revancha...");
+    PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name); // Recarga la escena actual
+}
 
 
 }
