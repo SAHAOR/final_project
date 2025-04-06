@@ -7,6 +7,7 @@ public class ObjectSpawner : MonoBehaviourPun
     public static ObjectSpawner instance;
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
+    public GameObject freezePanel; // Panel que bloquea la interacción
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class ObjectSpawner : MonoBehaviourPun
 
         SpawnInitialObjects();
     }
+    
 
     void SpawnInitialObjects()
     {
@@ -33,6 +35,27 @@ public class ObjectSpawner : MonoBehaviourPun
         apple.GetComponent<PhotonView>().RPC("SetOwner", RpcTarget.AllBuffered, 1);
         banana.GetComponent<PhotonView>().RPC("SetOwner", RpcTarget.AllBuffered, 2);
     }
+
+    //////////////////////////////////////// POWER UP
+    public void FreezePlayer(int actorNumber)
+    {
+        // Enviar una RPC al jugador específico para activar el congelamiento
+        photonView.RPC("ActivateFreeze", PhotonNetwork.CurrentRoom.GetPlayer(actorNumber));
+    }
+
+    [PunRPC]
+    private void ActivateFreeze()
+    {
+        StartCoroutine(FreezeRoutine());
+    }
+
+    private IEnumerator FreezeRoutine()
+    {
+        freezePanel.SetActive(true);
+        yield return new WaitForSeconds(100f);
+        freezePanel.SetActive(false);
+    }
+    ////////////////////////////////////////////////// END POWER UP
 
     [PunRPC]
     public void SpawnNewObject(string prefabName, Vector3 position, int ownerID)

@@ -72,6 +72,7 @@ MonoBehaviour:
   - SetPlayer2Sprite
   - NotifyRematchRequest
   - StartRematch
+  - ActivateFreeze
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
