@@ -4137,7 +4137,7 @@ RectTransform:
   m_GameObject: {fileID: 1131622421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1796140669}
@@ -4572,6 +4572,8 @@ MonoBehaviour:
   loserCamera: {fileID: 520519355}
   player1Prefab: {fileID: 7873353846990762006, guid: f6785ddcdeec8d24fa97387cddd8255c, type: 3}
   player2Prefab: {fileID: 456865963105779492, guid: 6e349851f834d16438c17171e5739251, type: 3}
+  winnerCrownPrefab: {fileID: 4131888118196687026, guid: b715c7f06274a31478290c9f6ff05367, type: 3}
+  loserCrownPrefab: {fileID: 6011318425011204275, guid: 8452d33cc1e63d3499babd24048cbcdb, type: 3}
 --- !u!4 &1352384769
 Transform:
   m_ObjectHideFlags: 0

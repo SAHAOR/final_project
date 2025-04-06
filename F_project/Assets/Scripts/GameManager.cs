@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject player1Prefab; // Prefab del jugador 1
     public GameObject player2Prefab; // Prefab del jugador 2
 
+    public GameObject winnerCrownPrefab; // Prefab de la corona del ganador
+    public GameObject loserCrownPrefab;  // Prefab de la corona del perdedor
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -229,7 +232,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             // Mostrar el prefab del ganador en la cámara secundaria
             GameObject winnerPrefab = (winnerID == player1ID) ? player1Prefab : player2Prefab;
-            ShowPrefabInCamera(winnerPrefab, winnerCamera.transform);
+            Vector3 winnerCrownScale = new Vector3(30f, 30f, 30f); // Escala específica para la corona del ganador
+            ShowPrefabInCamera(winnerPrefab, winnerCamera.transform, winnerCrownPrefab, winnerCrownScale);
+
 
             // Configurar la pantalla de victoria
             gamePanel.SetActive(false);
@@ -270,7 +275,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             // Mostrar el prefab del perdedor en la cámara secundaria
             GameObject loserPrefab = (loserID == player1ID) ? player1Prefab : player2Prefab;
-            ShowPrefabInCamera(loserPrefab, loserCamera.transform);
+            Vector3 loserCrownScale = new Vector3(0.5f, 0.5f, 0.5f); // Escala específica para la corona del perdedor
+            ShowPrefabInCamera(loserPrefab, loserCamera.transform, loserCrownPrefab, loserCrownScale);
 
 
 
@@ -378,7 +384,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name); // Recarga la escena actual
     }
 
-    void ShowPrefabInCamera(GameObject prefab, Transform cameraTransform)
+    void ShowPrefabInCamera(GameObject prefab, Transform cameraTransform, GameObject crownPrefab = null, Vector3? crownScale = null)
     {
         // Limpiar cualquier objeto previo en la cámara secundaria
         foreach (Transform child in cameraTransform)
@@ -393,7 +399,28 @@ public class GameManager : MonoBehaviourPunCallbacks
         // Ajustar la posición y rotación del prefab
         instance.transform.localPosition = new Vector3(0, 0, 5); // Coloca el prefab a 5 unidades frente a la cámara
         instance.transform.localRotation = Quaternion.Euler(0, 180, 0); // Ajusta la rotación si es necesario
-        instance.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f); // Escala predeterminada de 4, 4, 4
+        instance.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f); // Escala predeterminada de 4, 4, 4
+
+        // Si se proporciona un prefab de corona, instanciarlo como hijo del jugador
+        if (crownPrefab != null)
+        {
+            GameObject crownInstance = Instantiate(crownPrefab, instance.transform);
+            crownInstance.transform.localPosition = new Vector3(-0.03f, 0.221f, 0); // Ajusta la posición de la corona sobre la cabeza del jugador
+            crownInstance.transform.localRotation = Quaternion.Euler(167f, 118f, 9.08f);
+
+            // Si la corona es la de derrota, girarla 180 grados
+            if (crownPrefab == loserCrownPrefab)
+            {
+                crownInstance.transform.localRotation = Quaternion.Euler(13.073f,-120.01f,-7.443f); // Girar 180 grados
+            }
+
+            // Ajustar la escala de la corona (usar el valor proporcionado o un valor por defecto)
+            crownInstance.transform.localScale = crownScale ?? new Vector3(0.45f, 0.45f, 0.45f); // Si no se proporciona escala, usar (1, 1, 1)
+
+        }
+
+
+
     }
 
 
