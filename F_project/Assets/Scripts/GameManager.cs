@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private bool isRematchRequested = false; // Indica si el perdedor solicitó la revancha
 
+    public Camera winnerCamera; // Cámara secundaria para el ganador
+    public Camera loserCamera;  // Cámara secundaria para el perdedor
+    public GameObject player1Prefab; // Prefab del jugador 1
+    public GameObject player2Prefab; // Prefab del jugador 2
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -166,12 +171,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 100)
+        if (scorePlayer1 >= 4)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID, scorePlayer1);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID, scorePlayer2);
         }
-        else if (scorePlayer2 >= 100)
+        else if (scorePlayer2 >= 4)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID, scorePlayer2);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID, scorePlayer1);
@@ -221,8 +226,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
-            // Mostrar la imagen del ganador
-            winnerImage.sprite = (winnerID == player1ID) ? player1Sprite : player2Sprite;
+
+            // Mostrar el prefab del ganador en la cámara secundaria
+            GameObject winnerPrefab = (winnerID == player1ID) ? player1Prefab : player2Prefab;
+            ShowPrefabInCamera(winnerPrefab, winnerCamera.transform);
 
             // Configurar la pantalla de victoria
             gamePanel.SetActive(false);
@@ -239,7 +246,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"⏳ El tiempo del ganador es: {winTimeMatch.text}");
 
             // Deshabilitar el botón de aceptar revancha inicialmente
-             acceptRematchButton.interactable = false;
+            acceptRematchButton.interactable = false;
         }
         else
         {
@@ -261,8 +268,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
-            // Mostrar la imagen del perdedor
-            loserImage.sprite = (loserID == player1ID) ? player1Sprite : player2Sprite;
+            // Mostrar el prefab del perdedor en la cámara secundaria
+            GameObject loserPrefab = (loserID == player1ID) ? player1Prefab : player2Prefab;
+            ShowPrefabInCamera(loserPrefab, loserCamera.transform);
+
+
 
             // Configurar la pantalla de derrota
             gamePanel.SetActive(false);
@@ -281,7 +291,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"⏳ El tiempo del perdedor es: {loseTimeMatch.text}");
 
             // Habilitar el botón de solicitar revancha
-        requestRematchButton.interactable = true;
+            requestRematchButton.interactable = true;
         }
         else
         {
@@ -349,24 +359,42 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-void NotifyRematchRequest()
-{
-    Debug.Log("🔔 Notificación de solicitud de revancha recibida.");
-    isRematchRequested = true;
-
-    // Habilitar el botón de aceptar revancha en la pantalla del ganador
-    if (isWinner)
+    void NotifyRematchRequest()
     {
-        acceptRematchButton.interactable = true;
-    }
-}
+        Debug.Log("🔔 Notificación de solicitud de revancha recibida.");
+        isRematchRequested = true;
 
-[PunRPC]
-void StartRematch()
-{
-    Debug.Log("🎮 Iniciando la revancha...");
-    PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name); // Recarga la escena actual
-}
+        // Habilitar el botón de aceptar revancha en la pantalla del ganador
+        if (isWinner)
+        {
+            acceptRematchButton.interactable = true;
+        }
+    }
+
+    [PunRPC]
+    void StartRematch()
+    {
+        Debug.Log("🎮 Iniciando la revancha...");
+        PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name); // Recarga la escena actual
+    }
+
+    void ShowPrefabInCamera(GameObject prefab, Transform cameraTransform)
+    {
+        // Limpiar cualquier objeto previo en la cámara secundaria
+        foreach (Transform child in cameraTransform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Instanciar el prefab frente a la cámara secundaria
+        GameObject instance = Instantiate(prefab, cameraTransform);
+
+
+        // Ajustar la posición y rotación del prefab
+        instance.transform.localPosition = new Vector3(0, 0, 5); // Coloca el prefab a 5 unidades frente a la cámara
+        instance.transform.localRotation = Quaternion.Euler(0, 180, 0); // Ajusta la rotación si es necesario
+        instance.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f); // Escala predeterminada de 4, 4, 4
+    }
 
 
 }
