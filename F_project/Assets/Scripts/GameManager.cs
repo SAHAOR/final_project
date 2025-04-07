@@ -43,10 +43,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private bool isWinner = false;
     private bool isLoser = false;
 
-    public Image winnerImage;
-    public Image loserImage;
-    public Sprite player1Sprite;
-    public Sprite player2Sprite;
+ 
     private Dictionary<int, Sprite> playerSprites = new Dictionary<int, Sprite>();
 
     private float elapsedTime = 0f;
@@ -342,14 +339,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SetPlayer1Sprite(int playerID)
     {
         player1ID = playerID;
-        playerSprites[player1ID] = player1Sprite;
+       
     }
 
     [PunRPC]
     void SetPlayer2Sprite(int playerID)
     {
         player2ID = playerID;
-        playerSprites[player2ID] = player2Sprite;
+       
     }
 
     public void RequestRematch()
@@ -397,15 +394,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
         // Ajustar la posición y rotación del prefab
-        instance.transform.localPosition = new Vector3(0, 0, 5); // Coloca el prefab a 5 unidades frente a la cámara
+        instance.transform.localPosition = new Vector3(0, 0, 10); // Coloca el prefab a 5 unidades frente a la cámara
         instance.transform.localRotation = Quaternion.Euler(0, 180, 0); // Ajusta la rotación si es necesario
-        instance.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f); // Escala predeterminada de 4, 4, 4
+        instance.transform.localScale = new Vector3(5f, 5f, 5f); // Escala predeterminada de 4, 4, 4
 
         // Si se proporciona un prefab de corona, instanciarlo como hijo del jugador
         if (crownPrefab != null)
         {
             GameObject crownInstance = Instantiate(crownPrefab, instance.transform);
-            crownInstance.transform.localPosition = new Vector3(-0.03f, 0.221f, 0); // Ajusta la posición de la corona sobre la cabeza del jugador
+            crownInstance.transform.localPosition = new Vector3(-0.07f, 0.221f, 0); // Ajusta la posición de la corona sobre la cabeza del jugador
             crownInstance.transform.localRotation = Quaternion.Euler(167f, 118f, 9.08f);
 
             // Si la corona es la de derrota, girarla 180 grados
@@ -415,7 +412,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
 
             // Ajustar la escala de la corona (usar el valor proporcionado o un valor por defecto)
-            crownInstance.transform.localScale = crownScale ?? new Vector3(0.45f, 0.45f, 0.45f); // Si no se proporciona escala, usar (1, 1, 1)
+            crownInstance.transform.localScale = crownScale ?? new Vector3(0.5f, 0.5f, 0.5f); // Si no se proporciona escala, usar (1, 1, 1)
 
         }
 
