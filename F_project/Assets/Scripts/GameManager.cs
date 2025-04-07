@@ -394,9 +394,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
         // Ajustar la posición y rotación del prefab
-        instance.transform.localPosition = new Vector3(0, 0, 10); // Coloca el prefab a 5 unidades frente a la cámara
+        instance.transform.localPosition = new Vector3(0, 0, 29.9f); // Coloca el prefab a 5 unidades frente a la cámara
         instance.transform.localRotation = Quaternion.Euler(0, 180, 0); // Ajusta la rotación si es necesario
-        instance.transform.localScale = new Vector3(5f, 5f, 5f); // Escala predeterminada de 4, 4, 4
+        instance.transform.localScale = new Vector3(20f, 20f, 20f); // Escala predeterminada de 4, 4, 4
 
         // Si se proporciona un prefab de corona, instanciarlo como hijo del jugador
         if (crownPrefab != null)

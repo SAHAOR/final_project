@@ -2206,9 +2206,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 745665344}
-  - {fileID: 1171365776}
   - {fileID: 722789769}
-  m_Father: {fileID: 1298437547}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2283,7 +2282,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 38214267}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2419,7 +2418,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1298437547}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2706,7 +2705,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1298437543}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3033,7 +3032,6 @@ RectTransform:
   m_Children:
   - {fileID: 1469717288}
   - {fileID: 2075024091}
-  - {fileID: 38214267}
   m_Father: {fileID: 1496229602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4161,7 +4159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a4040943545584db522eff7243668d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 54
+  key: 64
 --- !u!114 &1172587293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5169,7 +5167,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 147005576}
   - {fileID: 854419563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5523,8 +5520,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 108442622}
+  m_Children: []
   m_Father: {fileID: 1790363180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6508,7 +6504,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1500278689}
-  - {fileID: 1322770719}
   - {fileID: 1593914722}
   m_Father: {fileID: 28496851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7836,7 +7831,6 @@ SceneRoots:
   - {fileID: 1541284309626645557}
   - {fileID: 1572382730}
   - {fileID: 1643166584}
-  - {fileID: 1298437547}
   - {fileID: 28496851}
   - {fileID: 1496229602}
   - {fileID: 1655836974}
@@ -7846,3 +7840,6 @@ SceneRoots:
   - {fileID: 506021024}
   - {fileID: 37316351}
   - {fileID: 1126475098}
+  - {fileID: 606137784}
+  - {fileID: 663241558}
+  - {fileID: 672424991}
