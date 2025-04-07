@@ -82,6 +82,7 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(39, isEnglish ? "Players in room:" : "Jugadores en sala");
         tempDictionary.Add(40, isEnglish ? "Play" : "Jugar");
         tempDictionary.Add(41, isEnglish ? "Or" : "O");
+        tempDictionary.Add(54, isEnglish ? "Back" : "Regresar");
 
         //Game Scene Win Panel and Lose panel 
         tempDictionary.Add(20, isEnglish ? "You Win !!!!" : "Ganaste !!!!");

@@ -210,15 +210,15 @@ PrefabInstance:
     - target: {fileID: 2718108636340183436, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1352384768}
+      objectReference: {fileID: 4265360219005248582}
     - target: {fileID: 3686300956293185553, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1352384768}
+      objectReference: {fileID: 4265360219005248582}
     - target: {fileID: 6348860985980487036, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1352384768}
+      objectReference: {fileID: 4265360219005248582}
     - target: {fileID: 8774740081967277072, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_Name
       value: CanvasWinOrLose
@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 9165322299217198394, guid: b4679aca1380d1249b9042d8c7e25f0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1352384768}
+      objectReference: {fileID: 4265360219005248582}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3534,114 +3534,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7917573802739577245, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
   m_PrefabInstance: {fileID: 694409956}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1352384767
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352384769}
-  - component: {fileID: 1352384768}
-  - component: {fileID: 1352384770}
-  - component: {fileID: 1352384771}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1352384768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352384767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22756e9c05165554e8507c0274c3ca58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreTextPlayer1: {fileID: 724549244}
-  scoreTextPlayer2: {fileID: 1749552866}
-  TimeMatch: {fileID: 510208479}
-  winningScore: 100
-  spawnPoint: {fileID: 1280420180051425618}
-  winPanel: {fileID: 250383098}
-  losePanel: {fileID: 4411795}
-  background: {fileID: 30449620}
-  gamePanel: {fileID: 1314502017}
-  victoryScoreText: {fileID: 4411792}
-  defeatScoreText: {fileID: 4411796}
-  winTimeMatch: {fileID: 4411794}
-  loseTimeMatch: {fileID: 4411793}
-  loserButton: {fileID: 4411791}
-  winnerButton: {fileID: 896557970}
-  requestRematchButton: {fileID: 4411791}
-  acceptRematchButton: {fileID: 896557970}
-  winnerCamera: {fileID: 1932744077}
-  loserCamera: {fileID: 520519355}
-  player1Prefab: {fileID: 7873353846990762006, guid: f6785ddcdeec8d24fa97387cddd8255c, type: 3}
-  player2Prefab: {fileID: 456865963105779492, guid: 6e349851f834d16438c17171e5739251, type: 3}
-  winnerCrownPrefab: {fileID: 4131888118196687026, guid: b715c7f06274a31478290c9f6ff05367, type: 3}
-  loserCrownPrefab: {fileID: 6011318425011204275, guid: 8452d33cc1e63d3499babd24048cbcdb, type: 3}
---- !u!4 &1352384769
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352384767}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 183.39395, y: 141.93259, z: 7.3404055}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1352384770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352384767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 1
-  OwnershipTransfer: 0
-  observableSearch: 0
-  ObservedComponents:
-  - {fileID: 1352384771}
-  sceneViewId: 2
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &1352384771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352384767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!224 &1396733909 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3368421913925595534, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
@@ -5166,6 +5058,22 @@ MonoBehaviour:
   textMeshPro: {fileID: 2146525274}
   waveSpeed: 0.6
   waveHeight: 0.02
+--- !u!114 &401162932624030248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756551157817930320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &1280420180051425617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5228,6 +5136,98 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2102642117407705432, guid: 04dcfc5a523f6564f827ad398f4a832b, type: 3}
   m_PrefabInstance: {fileID: 1280420180051425617}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042423681229542193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756551157817930320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 401162932624030248}
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!4 &2061192886191005462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756551157817930320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 183.39395, y: 141.93259, z: 7.3404055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3756551157817930320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061192886191005462}
+  - component: {fileID: 4265360219005248582}
+  - component: {fileID: 2042423681229542193}
+  - component: {fileID: 401162932624030248}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4265360219005248582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756551157817930320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22756e9c05165554e8507c0274c3ca58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTextPlayer1: {fileID: 724549244}
+  scoreTextPlayer2: {fileID: 1749552866}
+  TimeMatch: {fileID: 510208479}
+  winningScore: 100
+  spawnPoint: {fileID: 1280420180051425618}
+  winPanel: {fileID: 250383098}
+  losePanel: {fileID: 4411795}
+  background: {fileID: 30449620}
+  gamePanel: {fileID: 1314502017}
+  victoryScoreText: {fileID: 4411792}
+  defeatScoreText: {fileID: 4411796}
+  winTimeMatch: {fileID: 4411794}
+  loseTimeMatch: {fileID: 4411793}
+  loserButton: {fileID: 4411791}
+  winnerButton: {fileID: 896557970}
+  requestRematchButton: {fileID: 4411791}
+  acceptRematchButton: {fileID: 896557970}
+  winnerCamera: {fileID: 1932744077}
+  loserCamera: {fileID: 520519355}
+  player1Prefab: {fileID: 7873353846990762006, guid: f6785ddcdeec8d24fa97387cddd8255c, type: 3}
+  player2Prefab: {fileID: 456865963105779492, guid: 6e349851f834d16438c17171e5739251, type: 3}
+  winnerCrownPrefab: {fileID: 4131888118196687026, guid: b715c7f06274a31478290c9f6ff05367, type: 3}
+  loserCrownPrefab: {fileID: 6011318425011204275, guid: 8452d33cc1e63d3499babd24048cbcdb, type: 3}
 --- !u!1001 &5492205096889742577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5378,7 +5378,7 @@ SceneRoots:
   - {fileID: 1280420180051425617}
   - {fileID: 908524057}
   - {fileID: 1314502021}
-  - {fileID: 1352384769}
+  - {fileID: 2061192886191005462}
   - {fileID: 784786696}
   - {fileID: 906507409}
   - {fileID: 420761715}
