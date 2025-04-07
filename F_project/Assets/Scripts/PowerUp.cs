@@ -6,6 +6,11 @@ using System.Linq;
 
 public class PowerUp : MonoBehaviourPun
 {
+
+    void Start()
+    {
+        StartCoroutine(AutoDestroyAfterTime(5f));
+    }
     private void OnMouseDown()
     {
             int myActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
@@ -13,11 +18,18 @@ public class PowerUp : MonoBehaviourPun
 
             if (opponent != null)
             {
-                // Llamar al método del GameManager para congelar al oponente
-                ObjectSpawner.instance.FreezePlayer(opponent.ActorNumber);
+                ObjectSpawner.instance.photonView.RPC("FreezePlayer", RpcTarget.MasterClient, opponent.ActorNumber, PhotonNetwork.LocalPlayer.ActorNumber); 
             }
 
             ObjectSpawner.instance.photonView.RPC("DestroyObject", RpcTarget.MasterClient, photonView.ViewID); 
 
+    }
+
+    private IEnumerator AutoDestroyAfterTime(float time)
+    {
+        Debug.Log($"⏳ {gameObject.name} comenzará a contar {time} segundos para autodestruirse.");
+        yield return new WaitForSeconds(time);
+
+        ObjectSpawner.instance.photonView.RPC("DestroyObject", RpcTarget.MasterClient, photonView.ViewID);
     }
 }

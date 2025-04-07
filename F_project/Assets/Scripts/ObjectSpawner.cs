@@ -8,6 +8,10 @@ public class ObjectSpawner : MonoBehaviourPun
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
     public GameObject freezePanel; // Panel que bloquea la interacción
+    public GameObject freezeIcon; // Panel que bloquea la interacción
+
+    [SerializeField]
+    public Transform[] spawnPoints;  // Array de posiciones predefinidas
 
     private void Awake()
     {
@@ -19,12 +23,14 @@ public class ObjectSpawner : MonoBehaviourPun
         if (!PhotonNetwork.IsMasterClient) return; // Solo el MasterClient debe instanciar
 
         SpawnInitialObjects();
+        StartCoroutine(SpawnPowerUpRoutine());
     }
     
 
     void SpawnInitialObjects()
     {
         if (!PhotonNetwork.IsMasterClient) return;
+
         GameObject apple = PhotonNetwork.Instantiate("ApplePrefab", SpawnPoint1.position, Quaternion.identity);
         GameObject banana = PhotonNetwork.Instantiate("BananaPrefab", SpawnPoint2.position, Quaternion.identity);
 
@@ -37,10 +43,13 @@ public class ObjectSpawner : MonoBehaviourPun
     }
 
     //////////////////////////////////////// POWER UP
-    public void FreezePlayer(int actorNumber)
+    [PunRPC]
+    public void FreezePlayer(int actorNumber, int actorNumber2)
     {
+        if (!PhotonNetwork.IsMasterClient) return;
         // Enviar una RPC al jugador específico para activar el congelamiento
         photonView.RPC("ActivateFreeze", PhotonNetwork.CurrentRoom.GetPlayer(actorNumber));
+        photonView.RPC("ActivateFreezeIcon", PhotonNetwork.CurrentRoom.GetPlayer(actorNumber2));
     }
 
     [PunRPC]
@@ -52,9 +61,53 @@ public class ObjectSpawner : MonoBehaviourPun
     private IEnumerator FreezeRoutine()
     {
         freezePanel.SetActive(true);
-        yield return new WaitForSeconds(100f);
+        yield return new WaitForSeconds(10f);
         freezePanel.SetActive(false);
     }
+
+    [PunRPC]
+    private void ActivateFreezeIcon()
+    {
+        StartCoroutine(FreezeIcon());
+    }
+
+    private IEnumerator FreezeIcon()
+    {
+        freezeIcon.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        freezeIcon.SetActive(false);
+    }
+
+    private IEnumerator SpawnPowerUpRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(30f);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                SpawnPowerUp();
+            }
+        }
+    }
+
+    private void SpawnPowerUp()
+    {
+        if (spawnPoints.Length == 0)
+        {
+            Debug.LogWarning("No hay posiciones de aparición definidas.");
+            return;
+        }
+
+        if (!PhotonNetwork.IsMasterClient) return;
+
+        // Selecciona una posición aleatoria del array de spawnPoints
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        Transform spawnPoint = spawnPoints[randomIndex];
+
+        // Instancia el Power-Up en la posición seleccionada
+        GameObject powerup = PhotonNetwork.Instantiate("PowerUpFreeze", spawnPoint.position, Quaternion.identity);
+    }
+
     ////////////////////////////////////////////////// END POWER UP
 
     [PunRPC]

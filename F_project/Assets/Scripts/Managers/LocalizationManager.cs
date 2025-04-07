@@ -63,11 +63,12 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(24, isEnglish ? "¡Go!" : "¡inicia!");
         tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");
         //How to play    
-        tempDictionary.Add(26, isEnglish ? "Welcome to Splashy!\n\nIt's a competitive multiplayer game where speed and strategy are key. The goal is to reach 100 points before your opponent by clicking on the correct fruit." : "¡Bienvenido a Splashy!\n\nEs un juego multijugador competitivo donde la rapidez y la estrategia son clave. El objetivo es llegar a 100 puntos antes que tu oponente, haciendo clic en la fruta correcta.");
-        tempDictionary.Add(27, isEnglish ? "-One player must create a game, which will generate a room code.\n\n-The other player must enter the code to join the same game.\n\n-When both of you are ready, press the play button to begin!" : "-Un jugador debe crear una partida, lo que generará un código de sala.\n\n-El otro jugador debe ingresar el código para unirse a la misma partida.\n\n-Cuando ambos estén listos, ¡presione el botón de jugar para comenzar!");
-        tempDictionary.Add(28, isEnglish ? "-Each player has their own assigned fruit.\n\n-Clicking on your fruit will multiply it and give you 1 point.\n\n-Tip: If you click on your opponent's fruit, it will disappear and they will lose that fruit." : "-Cada jugador tiene su propia fruta asignada.\n\n-Hacer clic en tu fruta la multiplicará y te dará 1 punto.\n\n-Concejo: Si haces clic en la fruta de tu rival, desaparecerá y el perderá esa fruta.");
-        tempDictionary.Add(29, isEnglish ? "-Be quick to click your fruit and accumulate points quickly.\n\n-Use the tactic of eliminating your opponent's fruit to delay him.\n\n-Keep an eye on the distribution of fruits on the screen." : "-Sé rápido para clickear tu fruta y acumular puntos rápidamente.\n\n-Usa la táctica de eliminar la fruta de tu rival para retrasarlo.\n\n-Mantente atento a la distribución de las frutas en pantalla.");
-        tempDictionary.Add(30, isEnglish ? "-The first player to reach 100 points will be the winner.\n\n-Practice your speed and accuracy to improve your performance." : "-El primer jugador en alcanzar 100 puntos será el ganador.\n\n-Practica tu velocidad y precisión para mejorar tu rendimiento.");
+        tempDictionary.Add(26, isEnglish ? "-One player must create a room.\n-Must generate an access code.\n-The second player must enter the code to join.\n-Must press the play button.\n-Wait for the countdown to start." : "-Un jugador debe crear una sala.\n-Debe generar un código de acceso.\n-El segundo jugador debe ingresar el \ncódigo para unirse.\n-Debe presionar el botón de jugar.\n-Esperar a que comience la cuenta regresiva.");
+        tempDictionary.Add(27, isEnglish ? "-Each player has a unique fruit: banana for one player, apple for the other.\n-Click on your fruit to:\n    -Multiply it.\n    -Earn points (+1)." : "-Cada jugador tiene una fruta única: plátano para un jugador, manzana para el otro.\n-Haz clic en tu fruta para:\n    -Multiplicarla.\n    -Ganar puntos (+1).");
+        tempDictionary.Add(28, isEnglish ? "If you click on your opponent's fruit:\n    -You take away 1 point.\n    -That fruit disappears." : "Si haces clic en la fruta de tu oponente:\n-Le quitas 1 punto.\n-Esa fruta desaparece.");
+        tempDictionary.Add(29, isEnglish ? "A snowflake appears randomly.\n  When clicked:\n  -Disables the opponent for a few seconds.\n  -Particle effects are displayed." : "Aparece un copo de nieve aleatoriamente.\n Al hacer clic:\n -Desactiva al oponente durante unos segundos.\n -Se muestran los efectos de partículas.");
+        tempDictionary.Add(30, isEnglish ? "The game ends when:\n  -One player reaches 100 points.\n  -The first to reach this \npoint wins the game!" : "El juego termina cuando:\nUn jugador alcanza los 100 puntos.\n¡El primero en llegar a este \npunto gana el juego!");
+
         //Credits
         tempDictionary.Add(31, isEnglish ? "Samir Hassan Ordoñez (Project Manager, game designer, network architect, gameplay programmer, VFX, devops)" : "Samir Hassan Ordoñez (Gestión de proyecto, diseño de juego, arquitecto de red, gameplay, VFX, devops)");
         tempDictionary.Add(32, isEnglish ? "Miguel Ariza (Technical artist, 3D models, shaders and gameplay mechanics)" : "Miguel Ariza (Artista técnico, modelos 3D, shaders y mecánicas de jugabilidad)");
@@ -95,20 +96,34 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(45, isEnglish ? "Recuest Rematch" : "Pedir Revancha");
         tempDictionary.Add(46, isEnglish ? "*If the other player requests another game, the accept button will be enabled." : "*Si el otro jugador solicita otra partida, el botón de aceptar se habilitará.");
 
-
-
-        // canvas Game scene
+       // canvas Game scene
         tempDictionary.Add(47, isEnglish ? "player 1 " : "Jugador 1 ");
         tempDictionary.Add(48, isEnglish ? "player 2 " : "Jugador 2 ");
+
         //Cargando
         tempDictionary.Add(49, isEnglish ? "Lo" : "Carg");
         tempDictionary.Add(50, isEnglish ? "ad" : "ando");
-        //Error
-        tempDictionary.Add(51, isEnglish ? "The code you entered does not exist." : "El codigo que introdujiste no existe.");
-
+        /*Error
+        tempDictionary.Add(51, isEnglish ? "The code you entered does not exist." : "El codigo que introdujiste no existe.");*/
+        
         //Game Scene Lose panel     
         tempDictionary.Add(52, isEnglish ? "Score" : "Puntaje");
         tempDictionary.Add(53, isEnglish ? "Time" : "Tiempo");
+
+        //Error
+        tempDictionary.Add(54, isEnglish ? "The code you entered does not exist." : "El codigo que introdujiste no existe.");
+        tempDictionary.Add(55, isEnglish ? "The room you are trying to access is full." : "La sala a la que intentas acceder está llena.");
+        tempDictionary.Add(56, isEnglish ? "Could not connect to the server." : "No se pudo conectar con el servidor.");
+        tempDictionary.Add(57, isEnglish ? "The host locked the room." : "El anfitrión cerró la habitación.");
+        tempDictionary.Add(58, isEnglish ? "Invalid code.\nOnly numbers are allowed." : "Código inválido.\nSolo se permiten números.");
+
+        //Titles How to play menu 
+        tempDictionary.Add(59, isEnglish ? "How to get started?" : "¿Cómo empezar?");
+        tempDictionary.Add(60, isEnglish ? "Your fruit is your point" : "Tu fruta es tu punto");
+        tempDictionary.Add(61, isEnglish ? "Pay attention to the rival's fruit" : "Atento en la fruta del rival");
+        tempDictionary.Add(62, isEnglish ? "Power Up: Freezing Snow!" : "¡Potencia: Nieve helada!");
+        tempDictionary.Add(63, isEnglish ? "How to win?" : "¿Cómo ganar?");
+
 
         return tempDictionary;
     }
