@@ -5271,9 +5271,9 @@ MonoBehaviour:
   m_text: 'A snowflake appears randomly.\n  When clicked:\n  -Disables the opponent
     for a few seconds.\n  -Particle effects are displayed.
 
-    
 
-    
+
+
 
 '
   m_isRightToLeft: 0
