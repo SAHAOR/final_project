@@ -27,10 +27,10 @@ public class LocalizationManager : MonoBehaviour
         currentLanguage = language;
         PlayerPrefs.SetString("Language", language);
         PlayerPrefs.Save();
-        
+
         // Cargar el diccionario con los textos en el idioma seleccionado
         languageFile = LoadLanguageFile(language);
-        
+
         // Notificar a todos los textos que deben actualizarse
         LocalizedText.UpdateAllTexts();
     }
@@ -61,7 +61,7 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(18, isEnglish ? "Credits" : "Créditos");
         tempDictionary.Add(19, isEnglish ? "Brightness" : "Brillo");
         tempDictionary.Add(24, isEnglish ? "¡Go!" : "¡inicia!");
-        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");   
+        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");
         //How to play    
         tempDictionary.Add(26, isEnglish ? "Welcome to Splashy!\n\nIt's a competitive multiplayer game where speed and strategy are key. The goal is to reach 100 points before your opponent by clicking on the correct fruit." : "¡Bienvenido a Splashy!\n\nEs un juego multijugador competitivo donde la rapidez y la estrategia son clave. El objetivo es llegar a 100 puntos antes que tu oponente, haciendo clic en la fruta correcta.");
         tempDictionary.Add(27, isEnglish ? "-One player must create a game, which will generate a room code.\n\n-The other player must enter the code to join the same game.\n\n-When both of you are ready, press the play button to begin!" : "-Un jugador debe crear una partida, lo que generará un código de sala.\n\n-El otro jugador debe ingresar el código para unirse a la misma partida.\n\n-Cuando ambos estén listos, ¡presione el botón de jugar para comenzar!");
@@ -75,14 +75,14 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(34, isEnglish ? "Felipe Gualteros Viasus (UI programmer and designer, backend configuration, aesthetic design)" : "Felipe Gualteros  Viasus (Diseñador y desarrollador de UI, programador de configuraciones y diseño estético)");
 
         //Samir Scene
-        tempDictionary.Add(35, isEnglish ? "Create Room" : "Crear Sala"); 
-        tempDictionary.Add(36, isEnglish ? "Enter room code" : "Ingrese número de sala"); 
-        tempDictionary.Add(37, isEnglish ? "Join Room" : "Unirse a la sala"); 
-        tempDictionary.Add(38, isEnglish ? "Room code" : "Codigo de sala"); 
+        tempDictionary.Add(35, isEnglish ? "Create Room" : "Crear Sala");
+        tempDictionary.Add(36, isEnglish ? "Enter room code" : "Ingrese número de sala");
+        tempDictionary.Add(37, isEnglish ? "Join Room" : "Unirse a la sala");
+        tempDictionary.Add(38, isEnglish ? "Room code" : "Codigo de sala");
         tempDictionary.Add(39, isEnglish ? "Players in room:" : "Jugadores en sala");
         tempDictionary.Add(40, isEnglish ? "Play" : "Jugar");
         tempDictionary.Add(41, isEnglish ? "Or" : "O");
-        tempDictionary.Add(54, isEnglish ? "Back" : "Regresar");
+        tempDictionary.Add(64, isEnglish ? "Back" : "Regresar");
 
         //Game Scene Win Panel and Lose panel 
         tempDictionary.Add(20, isEnglish ? "You Win !!!!" : "Ganaste !!!!");
@@ -95,9 +95,9 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(45, isEnglish ? "Recuest Rematch" : "Pedir Revancha");
         tempDictionary.Add(46, isEnglish ? "*If the other player requests another game, the accept button will be enabled." : "*Si el otro jugador solicita otra partida, el botón de aceptar se habilitará.");
 
-      
-      
-       // canvas Game scene
+
+
+        // canvas Game scene
         tempDictionary.Add(47, isEnglish ? "player 1 " : "Jugador 1 ");
         tempDictionary.Add(48, isEnglish ? "player 2 " : "Jugador 2 ");
         //Cargando
@@ -105,7 +105,7 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(50, isEnglish ? "ad" : "ando");
         //Error
         tempDictionary.Add(51, isEnglish ? "The code you entered does not exist." : "El codigo que introdujiste no existe.");
-        
+
         //Game Scene Lose panel     
         tempDictionary.Add(52, isEnglish ? "Score" : "Puntaje");
         tempDictionary.Add(53, isEnglish ? "Time" : "Tiempo");
