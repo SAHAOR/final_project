@@ -1582,7 +1582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -285}
+  m_AnchoredPosition: {x: 345, y: -351}
   m_SizeDelta: {x: 70, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385644295
@@ -4735,7 +4735,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 388.16437}
+  m_margin: {x: 0, y: 0, z: 0, w: 408.71735}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8129,7 +8129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -140}
+  m_AnchoredPosition: {x: 0, y: -118}
   m_SizeDelta: {x: 1200, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484571641
@@ -8166,7 +8166,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: '-Each player has a unique fruit: banana for one player, apple for the
-    other.\n\n-Click on your fruit to:\n    -Multiply it.\n    -Earn points (+1).'
+    other. \n(Your fruit appears twinkling on top)\n\n -Click on your fruit to:\n   
+    -Multiply it.\n    -Earn points (+1).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ea692c107e40f848813d5a35c851fd3, type: 2}
   m_sharedMaterial: {fileID: 5895498723352392651, guid: 7ea692c107e40f848813d5a35c851fd3, type: 2}
@@ -8205,7 +8206,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -10
+  m_lineSpacing: -25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -8231,7 +8232,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 36.345886, y: 98.64935, z: 0, w: 0}
+  m_margin: {x: 36.345886, y: 109.52203, z: 0, w: -31.086761}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11968,7 +11969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244, y: -207}
+  m_AnchoredPosition: {x: 305, y: -273}
   m_SizeDelta: {x: 120, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989884404
