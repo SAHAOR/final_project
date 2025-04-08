@@ -43,10 +43,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private bool isWinner = false;
     private bool isLoser = false;
 
-    public Image winnerImage;
-    public Image loserImage;
-    public Sprite player1Sprite;
-    public Sprite player2Sprite;
+
     private Dictionary<int, Sprite> playerSprites = new Dictionary<int, Sprite>();
 
     private float elapsedTime = 0f;
@@ -56,6 +53,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Button acceptRematchButton;  // Botón en la pantalla de victoria
 
     private bool isRematchRequested = false; // Indica si el perdedor solicitó la revancha
+
+    public Camera winnerCamera; // Cámara secundaria para el ganador
+    public Camera loserCamera;  // Cámara secundaria para el perdedor
+    public GameObject player1Prefab; // Prefab del jugador 1
+    public GameObject player2Prefab; // Prefab del jugador 2
+
+    public GameObject winnerCrownPrefab; // Prefab de la corona del ganador
+
+    public GameObject playerApple;
+    public GameObject playerBanana;
+
 
     void Awake()
     {
@@ -101,10 +109,21 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         startTime = Time.time;
 
-        // loserButton.gameObject.SetActive(false);
-        // winnerButton.gameObject.SetActive(false);
-        // winnerButton.interactable = false;
+
+        if (PhotonNetwork.IsMasterClient)
+        {            
+            StartCoroutine(WaitForSecondsApple(0.3f));
+
+        }
+        else if (!PhotonNetwork.IsMasterClient)
+        {
+            StartCoroutine(WaitForSecondsBanana(0.5f));
+            
+        }
+
     }
+
+
 
     void Update()
     {
@@ -166,12 +185,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
         }
 
-        if (scorePlayer1 >= 100)
+        if (scorePlayer1 >= 4)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID, scorePlayer1);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID, scorePlayer2);
         }
-        else if (scorePlayer2 >= 100)
+        else if (scorePlayer2 >= 4)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID, scorePlayer2);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID, scorePlayer1);
@@ -221,8 +240,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
-            // Mostrar la imagen del ganador
-            winnerImage.sprite = (winnerID == player1ID) ? player1Sprite : player2Sprite;
+
+            // Mostrar el prefab del ganador en la cámara secundaria
+            GameObject winnerPrefab = (winnerID == player1ID) ? player1Prefab : player2Prefab;
+            Vector3 winnerCrownScale = new Vector3(30f, 30f, 30f); // Escala específica para la corona del ganador
+            ShowPrefabInCamera(winnerPrefab, winnerCamera.transform, winnerCrownPrefab, winnerCrownScale);
+
 
             // Configurar la pantalla de victoria
             gamePanel.SetActive(false);
@@ -239,7 +262,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"⏳ El tiempo del ganador es: {winTimeMatch.text}");
 
             // Deshabilitar el botón de aceptar revancha inicialmente
-             acceptRematchButton.interactable = false;
+            acceptRematchButton.interactable = false;
         }
         else
         {
@@ -261,8 +284,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             float elapsedTime = Time.time - startTime;
             string formattedTime = FormatTime(elapsedTime);
 
-            // Mostrar la imagen del perdedor
-            loserImage.sprite = (loserID == player1ID) ? player1Sprite : player2Sprite;
+            // Mostrar el prefab del perdedor en la cámara secundaria
+            GameObject loserPrefab = (loserID == player1ID) ? player1Prefab : player2Prefab;
+            ShowPrefabInCamera(loserPrefab, loserCamera.transform);
+
+
 
             // Configurar la pantalla de derrota
             gamePanel.SetActive(false);
@@ -281,7 +307,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"⏳ El tiempo del perdedor es: {loseTimeMatch.text}");
 
             // Habilitar el botón de solicitar revancha
-        requestRematchButton.interactable = true;
+            requestRematchButton.interactable = true;
         }
         else
         {
@@ -326,14 +352,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SetPlayer1Sprite(int playerID)
     {
         player1ID = playerID;
-        playerSprites[player1ID] = player1Sprite;
+
     }
 
     [PunRPC]
     void SetPlayer2Sprite(int playerID)
     {
         player2ID = playerID;
-        playerSprites[player2ID] = player2Sprite;
+
     }
 
     public void RequestRematch()
@@ -349,24 +375,163 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-void NotifyRematchRequest()
-{
-    Debug.Log("🔔 Notificación de solicitud de revancha recibida.");
-    isRematchRequested = true;
-
-    // Habilitar el botón de aceptar revancha en la pantalla del ganador
-    if (isWinner)
+    void NotifyRematchRequest()
     {
-        acceptRematchButton.interactable = true;
+        Debug.Log("🔔 Notificación de solicitud de revancha recibida.");
+        isRematchRequested = true;
+
+        // Habilitar el botón de aceptar revancha en la pantalla del ganador
+        if (isWinner)
+        {
+            acceptRematchButton.interactable = true;
+        }
+    }
+
+    [PunRPC]
+    void StartRematch()
+    {
+        Debug.Log("🎮 Iniciando la revancha...");
+        PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name); // Recarga la escena actual
+    }
+
+    void ShowPrefabInCamera(GameObject prefab, Transform cameraTransform, GameObject crownPrefab = null, Vector3? crownScale = null)
+    {
+        // Limpiar cualquier objeto previo en la cámara secundaria
+        foreach (Transform child in cameraTransform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Instanciar el prefab frente a la cámara secundaria
+        GameObject instance = Instantiate(prefab, cameraTransform);
+
+
+        // Ajustar la posición y rotación del prefab
+        instance.transform.localPosition = new Vector3(0, 0, 29.9f); // Coloca el prefab a 5 unidades frente a la cámara
+        instance.transform.localRotation = Quaternion.Euler(0, 180, 0); // Ajusta la rotación si es necesario
+        instance.transform.localScale = new Vector3(20f, 20f, 20f); // Escala predeterminada de 4, 4, 4
+
+        // Si se proporciona un prefab de corona, instanciarlo como hijo del jugador
+        if (crownPrefab != null)
+        {
+            GameObject crownInstance = Instantiate(crownPrefab, instance.transform);
+            crownInstance.transform.localPosition = new Vector3(-0.07f, 0.221f, 0); // Ajusta la posición de la corona sobre la cabeza del jugador
+            crownInstance.transform.localRotation = Quaternion.Euler(167f, 118f, 9.08f);
+
+
+
+            // Ajustar la escala de la corona (usar el valor proporcionado o un valor por defecto)
+            crownInstance.transform.localScale = crownScale ?? new Vector3(0.5f, 0.5f, 0.5f); // Si no se proporciona escala, usar (1, 1, 1)
+
+        }
+
+
+
+    }
+
+
+IEnumerator WaitForSecondsApple(float seconds)
+
+{
+    Vector3 startScale = playerApple.transform.localScale; // Obtén el tamaño inicial
+    Vector3 endScale = new Vector3(1f, 1f, 1f); // Tamaño final
+
+    float elapsedTime = 0f; // Tiempo que ha pasado desde el inicio
+
+    while (true)
+    {
+        // Redefinimos el tamaño inicial y final para que funcione cada vez que se repita
+        startScale = playerApple.transform.localScale;
+        endScale = new Vector3(0.7f, 0.7f, 0.7f); 
+
+        // Transición progresiva de escala de 0.5 a 1
+        while (elapsedTime < seconds)
+        {
+            playerApple.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+            yield return null; // Esperamos el siguiente frame
+        }
+
+        // Aseguramos que el tamaño final sea exactamente el que queremos
+        playerApple.transform.localScale = endScale;
+
+        yield return new WaitForSeconds(0.2f); // Esperamos antes de cambiar a otro tamaño
+
+        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
+
+        // Ahora cambiamos de nuevo a tamaño 1
+        startScale = playerApple.transform.localScale;
+        endScale = new Vector3(1f, 1f, 1f); 
+
+        // Transición progresiva de escala de 1 a 0.5
+        while (elapsedTime < seconds)
+        {
+            playerApple.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+            yield return null; // Esperamos el siguiente frame
+        }
+
+        // Aseguramos que el tamaño final sea exactamente el que queremos
+        playerApple.transform.localScale = endScale;
+
+        yield return new WaitForSeconds(0.2f); // Esperamos antes de repetir el ciclo
+
+        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
     }
 }
 
-[PunRPC]
-void StartRematch()
+IEnumerator WaitForSecondsBanana(float seconds)
+
 {
-    Debug.Log("🎮 Iniciando la revancha...");
-    PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name); // Recarga la escena actual
+    Vector3 startScale = playerBanana.transform.localScale; // Obtén el tamaño inicial
+    Vector3 endScale = new Vector3(1f, 1f, 1f); // Tamaño final
+
+    float elapsedTime = 0f; // Tiempo que ha pasado desde el inicio
+
+    while (true)
+    {
+        // Redefinimos el tamaño inicial y final para que funcione cada vez que se repita
+        startScale = playerBanana.transform.localScale;
+        endScale = new Vector3(0.7f, 0.7f, 0.7f); 
+
+        // Transición progresiva de escala de 0.5 a 1
+        while (elapsedTime < seconds)
+        {
+            playerBanana.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+            yield return null; // Esperamos el siguiente frame
+        }
+
+        // Aseguramos que el tamaño final sea exactamente el que queremos
+        playerBanana.transform.localScale = endScale;
+
+        yield return new WaitForSeconds(0.2f); // Esperamos antes de cambiar a otro tamaño
+
+        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
+
+        // Ahora cambiamos de nuevo a tamaño 1
+        startScale = playerBanana.transform.localScale;
+        endScale = new Vector3(1f, 1f, 1f); 
+
+        // Transición progresiva de escala de 1 a 0.5
+        while (elapsedTime < seconds)
+        {
+            playerBanana.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+            yield return null; // Esperamos el siguiente frame
+        }
+
+        // Aseguramos que el tamaño final sea exactamente el que queremos
+        playerBanana.transform.localScale = endScale;
+
+        yield return new WaitForSeconds(0.2f); // Esperamos antes de repetir el ciclo
+
+        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
+    }
 }
+
+
+
 
 
 }

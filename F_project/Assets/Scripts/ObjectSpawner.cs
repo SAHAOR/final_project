@@ -61,7 +61,10 @@ public class ObjectSpawner : MonoBehaviourPun
     private IEnumerator FreezeRoutine()
     {
         freezePanel.SetActive(true);
+        AudioManager.instance.PlaySfx("Freeze sound"); // Reproducir SFX al hacer clic
+        AudioManager.instance.PauseMusic(); // Reproducir SFX al hacer clic
         yield return new WaitForSeconds(10f);
+        AudioManager.instance.ResumeMusic(); // Reproducir SFX al hacer clic
         freezePanel.SetActive(false);
     }
 

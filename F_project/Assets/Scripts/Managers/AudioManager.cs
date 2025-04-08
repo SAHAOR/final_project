@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -31,7 +33,10 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-
+          // Se suscribe al evento de carga de escena para cambiar la m�sica autom�ticamente
+        SceneManager.sceneLoaded += OnSceneLoaded;
+          // Buscar el controlador de volumen en la escena actual
+        FindVolumeController();
 
         // Si no se ha asignado manualmente, intenta encontrar el controlador de volumen en la escena
         if (volumeController == null)
@@ -49,17 +54,37 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("No se encontr� el script Volume en la escena.");
         }
 
-        // Se suscribe al evento de carga de escena para cambiar la m�sica autom�ticamente
-        SceneManager.sceneLoaded += OnSceneLoaded;
+      
 
         // Si esta es la primera escena al iniciar el juego, se asegura de que la m�sica inicie
         PlayMusicByScene();
 
     }
 
+     private void FindVolumeController()
+    {
+        if (volumeController == null)
+        {
+            // Especificar explícitamente UnityEngine.Object
+        volumeController = UnityEngine.Object.FindFirstObjectByType<Volume>();
+        }
+
+        if (volumeController != null)
+        {
+            volumeController.LoadVolumePreferences();
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró un script Volume en la escena actual.");
+        }
+    }
+
     // M�todo que se llama cuando se carga una nueva escena
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Buscar el controlador de volumen en la nueva escena
+        FindVolumeController();
+            // Reproducir música según la escena actual
         PlayMusicByScene();
     }
 
@@ -73,6 +98,12 @@ public class AudioManager : MonoBehaviour
             case "Felipe":
                 PlayMusic("example menu theme 2"); // Reproduce la m�sica asignada al men�
                 break;
+            case "Samir":
+                musicAudio.Stop();
+                break;    
+            case "GameScene":
+                PlayMusic("Game theme"); // Reproduce la m�sica asignada al juego
+                break;
             case "UIGameScene":
                 PlayMusic("Game Theme"); // Reproduce la m�sica asignada al juego
                 break;
@@ -82,6 +113,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    [PunRPC]
     // M�todo para reproducir un efecto de sonido (SFX) seg�n el nombre
     public void PlaySfx(string name)
     {
@@ -99,21 +131,23 @@ public class AudioManager : MonoBehaviour
 
     // M�todo para reproducir m�sica seg�n el nombre
     public void PlayMusic(string name)
+{
+    // Busca la música en el array de música
+    Sound music = Array.Find(musicSounds, x => x.nameSound == name);
+    if (music == null)
     {
-        // Busca la m�sica en el array de m�sica
-        Sound music = Array.Find(musicSounds, x => x.nameSound == name);
-        if (music == null)
-        {
-            Debug.Log("Music Not Found");
-        }
-        // Evita reiniciar la misma canci�n si ya est� sonando
-        if (musicAudio.clip == music.clip && musicAudio.isPlaying) return;
-
-        musicAudio.Stop();
-        musicAudio.clip = music.clip;
-        musicAudio.Play();
-        musicAudio.loop = true;
+        Debug.Log("Music Not Found");
+        return;
     }
+
+    // Detiene la música actual antes de reproducir la nueva
+    musicAudio.Stop();
+
+    // Asigna el nuevo clip y lo reproduce
+    musicAudio.clip = music.clip;
+    musicAudio.Play();
+    musicAudio.loop = true;
+}
 
     // M�todo para reiniciar la m�sica actual
     public void RestartMusic()
@@ -121,4 +155,34 @@ public class AudioManager : MonoBehaviour
         musicAudio.Stop();
         musicAudio.Play();
     }
+
+    // Método para pausar la música actual
+public void PauseMusic()
+{
+    if (musicAudio.isPlaying)
+    {
+        musicAudio.Pause();
+        Debug.Log("Música pausada.");
+    }
+    else
+    {
+        Debug.LogWarning("No hay música reproduciéndose para pausar.");
+    }
+}
+
+// Método para reanudar la música pausada
+public void ResumeMusic()
+{
+    if (!musicAudio.isPlaying && musicAudio.clip != null)
+    {
+        musicAudio.UnPause();
+        Debug.Log("Música reanudada.");
+    }
+    else
+    {
+        Debug.LogWarning("No hay música pausada para reanudar.");
+    }
+}
+
+
 }

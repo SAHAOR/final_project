@@ -27,10 +27,10 @@ public class LocalizationManager : MonoBehaviour
         currentLanguage = language;
         PlayerPrefs.SetString("Language", language);
         PlayerPrefs.Save();
-        
+
         // Cargar el diccionario con los textos en el idioma seleccionado
         languageFile = LoadLanguageFile(language);
-        
+
         // Notificar a todos los textos que deben actualizarse
         LocalizedText.UpdateAllTexts();
     }
@@ -61,7 +61,7 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(18, isEnglish ? "Credits" : "Créditos");
         tempDictionary.Add(19, isEnglish ? "Brightness" : "Brillo");
         tempDictionary.Add(24, isEnglish ? "¡Go!" : "¡inicia!");
-        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");   
+        tempDictionary.Add(25, isEnglish ? "Sound" : "Sonido");
         //How to play    
         tempDictionary.Add(26, isEnglish ? "-One player must create a room.\n-Must generate an access code.\n-The second player must enter the code to join.\n-Must press the play button.\n-Wait for the countdown to start." : "-Un jugador debe crear una sala.\n-Debe generar un código de acceso.\n-El segundo jugador debe ingresar el \ncódigo para unirse.\n-Debe presionar el botón de jugar.\n-Esperar a que comience la cuenta regresiva.");
         tempDictionary.Add(27, isEnglish ? "-Each player has a unique fruit: banana for one player, apple for the other. \n(Your fruit appears twinkling on top)\n\n -Click on your fruit to:\n    -Multiply it.\n    -Earn points (+1)." : "-Cada jugador tiene una fruta única: plátano para un jugador, manzana para el otro. \n (Tu fruta aparece parpadeando en la parte superior)\n\n -Haz clic en tu fruta para:\n    -Multiplícala.\n    -Gana puntos (+1).");
@@ -76,13 +76,14 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(34, isEnglish ? "Felipe Gualteros Viasus (UI programmer and designer, backend configuration, aesthetic design)" : "Felipe Gualteros  Viasus (Diseñador y desarrollador de UI, programador de configuraciones y diseño estético)");
 
         //Samir Scene
-        tempDictionary.Add(35, isEnglish ? "Create Room" : "Crear Sala"); 
-        tempDictionary.Add(36, isEnglish ? "Enter room code" : "Ingrese número de sala"); 
-        tempDictionary.Add(37, isEnglish ? "Join Room" : "Unirse a la sala"); 
-        tempDictionary.Add(38, isEnglish ? "Room code" : "Codigo de sala"); 
+        tempDictionary.Add(35, isEnglish ? "Create Room" : "Crear Sala");
+        tempDictionary.Add(36, isEnglish ? "Enter room code" : "Ingrese número de sala");
+        tempDictionary.Add(37, isEnglish ? "Join Room" : "Unirse a la sala");
+        tempDictionary.Add(38, isEnglish ? "Room code" : "Codigo de sala");
         tempDictionary.Add(39, isEnglish ? "Players in room:" : "Jugadores en sala");
         tempDictionary.Add(40, isEnglish ? "Play" : "Jugar");
         tempDictionary.Add(41, isEnglish ? "Or" : "O");
+        tempDictionary.Add(64, isEnglish ? "Back" : "Regresar");
 
         //Game Scene Win Panel and Lose panel 
         tempDictionary.Add(20, isEnglish ? "You Win !!!!" : "Ganaste !!!!");

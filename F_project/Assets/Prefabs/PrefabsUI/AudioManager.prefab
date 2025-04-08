@@ -182,11 +182,21 @@ MonoBehaviour:
   musicSounds:
   - nameSound: example menu theme 2
     clip: {fileID: 8300000, guid: f8f30c700f3a4aa4d97847d91e80e21a, type: 3}
-  - nameSound: Game Theme
+  - nameSound: Game theme
     clip: {fileID: 8300000, guid: e1fbb4ce26e0cf943bdd4df04acf334c, type: 3}
+  - nameSound: Lobby Theme
+    clip: {fileID: 8300000, guid: b3f56080e12b89b41a813ad881ce3d4e, type: 3}
+  - nameSound: Game theme2
+    clip: {fileID: 8300000, guid: 1ebeab30eb1bafa41a8689c0beb11c07, type: 3}
   sfxSounds:
   - nameSound: Button sound
-    clip: {fileID: 8300000, guid: 8f95abdcd8a388c4aafcec4ecbfca971, type: 3}
+    clip: {fileID: 8300000, guid: 6d44ea952dfb59148b9845fc1e7cd339, type: 3}
+  - nameSound: Instance sound
+    clip: {fileID: 8300000, guid: 1e60a659adfab644688020fbcd17999a, type: 3}
+  - nameSound: Destroy sound
+    clip: {fileID: 8300000, guid: 1e60a659adfab644688020fbcd17999a, type: 3}
+  - nameSound: Freeze sound
+    clip: {fileID: 8300000, guid: b6ab6b9f913add94c87d29636ad9015a, type: 3}
 --- !u!1 &8928990358225722056
 GameObject:
   m_ObjectHideFlags: 0
