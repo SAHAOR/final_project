@@ -8,6 +8,7 @@ public class InteractableObject : MonoBehaviourPun
     private PhotonView photonView;
     private bool canGenerate = true; // Permite controlar si puede generar un nuevo objeto
     public bool isIndestructible = false;
+    public ParticleSystem destroyParticles;
 
     private void Awake()
     {
@@ -61,6 +62,12 @@ public class InteractableObject : MonoBehaviourPun
         else
         {
             photonView.RPC("SubtractScore", RpcTarget.AllBuffered, owner);
+            GetComponent<MeshRenderer>().enabled = false;
+            if (destroyParticles != null)
+            {
+                destroyParticles.transform.parent = null; // para que no desaparezca junto con el objeto
+                destroyParticles.Play();
+            }
             RequestDestroy();
             AudioManager.instance.PlaySfx("Destroy sound"); // Reproducir SFX al hacer clic
         }

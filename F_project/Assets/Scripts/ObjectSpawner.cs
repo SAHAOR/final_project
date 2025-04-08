@@ -31,8 +31,8 @@ public class ObjectSpawner : MonoBehaviourPun
     {
         if (!PhotonNetwork.IsMasterClient) return;
 
-        GameObject apple = PhotonNetwork.Instantiate("ApplePrefab", SpawnPoint1.position, Quaternion.identity);
-        GameObject banana = PhotonNetwork.Instantiate("BananaPrefab", SpawnPoint2.position, Quaternion.identity);
+        GameObject apple = PhotonNetwork.Instantiate("AppleDad", SpawnPoint1.position, Quaternion.identity);
+        GameObject banana = PhotonNetwork.Instantiate("BananaDad", SpawnPoint2.position, Quaternion.identity);
 
         apple.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);
         banana.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);
@@ -108,7 +108,7 @@ public class ObjectSpawner : MonoBehaviourPun
         Transform spawnPoint = spawnPoints[randomIndex];
 
         // Instancia el Power-Up en la posición seleccionada
-        GameObject powerup = PhotonNetwork.Instantiate("PowerUpFreeze", spawnPoint.position, Quaternion.identity);
+        GameObject powerup = PhotonNetwork.Instantiate("PowerUpFreeze1", spawnPoint.position, Quaternion.identity);
     }
 
     ////////////////////////////////////////////////// END POWER UP
