@@ -23,7 +23,7 @@ public class PowerUp : MonoBehaviourPun
             }
 
             ObjectSpawner.instance.photonView.RPC("DestroyObject", RpcTarget.MasterClient, photonView.ViewID); 
-            AudioManager.instance.PlaySfx("Instance sound"); // Reproducir SFX al hacer clic
+            AudioManager.instance.PlaySfx("Click Power Up"); // Reproducir SFX al hacer clic
 
     }
 
