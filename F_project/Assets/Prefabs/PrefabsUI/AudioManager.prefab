@@ -194,9 +194,11 @@ MonoBehaviour:
   - nameSound: Instance sound
     clip: {fileID: 8300000, guid: 1e60a659adfab644688020fbcd17999a, type: 3}
   - nameSound: Destroy sound
-    clip: {fileID: 8300000, guid: 1e60a659adfab644688020fbcd17999a, type: 3}
+    clip: {fileID: 8300000, guid: 2a51f353cf4e98d4e8142b483178440f, type: 3}
   - nameSound: Freeze sound
     clip: {fileID: 8300000, guid: b6ab6b9f913add94c87d29636ad9015a, type: 3}
+  - nameSound: Click Power Up
+    clip: {fileID: 8300000, guid: 786fd90228bd15641abbe3d3b32c71ad, type: 3}
 --- !u!1 &8928990358225722056
 GameObject:
   m_ObjectHideFlags: 0
