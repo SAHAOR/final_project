@@ -31,8 +31,8 @@ public class ObjectSpawner : MonoBehaviourPun
     {
         if (!PhotonNetwork.IsMasterClient) return;
 
-        GameObject apple = PhotonNetwork.Instantiate("AppleDad", SpawnPoint1.position, Quaternion.identity);
-        GameObject banana = PhotonNetwork.Instantiate("BananaDad", SpawnPoint2.position, Quaternion.identity);
+        GameObject apple = PhotonNetwork.Instantiate("AppleSilver", SpawnPoint1.position, Quaternion.identity);
+        GameObject banana = PhotonNetwork.Instantiate("BananaSilver", SpawnPoint2.position, Quaternion.identity);
 
         apple.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);
         banana.GetComponent<PhotonView>().RPC("SetIndestructible", RpcTarget.AllBuffered, true);

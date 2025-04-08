@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: 0
   isIndestructible: 0
+  destroyParticles: {fileID: 0}
 --- !u!54 &7562040458827279758
 Rigidbody:
   m_ObjectHideFlags: 0

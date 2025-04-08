@@ -7,6 +7,8 @@ using System.Linq;
 public class PowerUp : MonoBehaviourPun
 {
 
+    public ParticleSystem destroyParticles;
+
     void Start()
     {
         StartCoroutine(AutoDestroyAfterTime(5f));
@@ -20,6 +22,13 @@ public class PowerUp : MonoBehaviourPun
             if (opponent != null)
             {
                 ObjectSpawner.instance.photonView.RPC("FreezePlayer", RpcTarget.MasterClient, opponent.ActorNumber, PhotonNetwork.LocalPlayer.ActorNumber); 
+            }
+
+            GetComponent<MeshRenderer>().enabled = false;
+            if (destroyParticles != null)
+            {
+                destroyParticles.transform.parent = null; // para que no desaparezca junto con el objeto
+                destroyParticles.Play();
             }
 
             ObjectSpawner.instance.photonView.RPC("DestroyObject", RpcTarget.MasterClient, photonView.ViewID); 
