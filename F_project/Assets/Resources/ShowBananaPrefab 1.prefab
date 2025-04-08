@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7988631536700267142}
   - component: {fileID: 2594155333128329980}
   - component: {fileID: 8612549046131694437}
+  - component: {fileID: 4077512592522020843}
   m_Layer: 6
   m_Name: ShowBananaPrefab 1
   m_TagString: Untagged
@@ -173,3 +174,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4077512592522020843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456865963105779492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b996a19e16444143b8d22f760bc7f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 100, z: 0}
+  speedMultiplier: 0.5

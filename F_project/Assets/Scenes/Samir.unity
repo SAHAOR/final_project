@@ -1851,6 +1851,8 @@ MonoBehaviour:
   roomCodeText: {fileID: 895832883}
   playersText: {fileID: 1191588134}
   playButton: {fileID: 1747558120}
+  createRoomButton: {fileID: 179441823}
+  joinRoomButton: {fileID: 1104822575}
 --- !u!4 &506021024
 Transform:
   m_ObjectHideFlags: 0

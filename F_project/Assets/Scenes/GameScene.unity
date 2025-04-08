@@ -1703,7 +1703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1441, y: 0}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488961247
@@ -2145,7 +2145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7635577939154673166, guid: 65da9d8312a134441859f93b3d6f49ba, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2749,6 +2749,16 @@ PrefabInstance:
 --- !u!224 &694409957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5366969543784067624, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
+  m_PrefabInstance: {fileID: 694409956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &694409958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5325914716888598262, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
+  m_PrefabInstance: {fileID: 694409956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &694409959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982914255716686826, guid: 47378d10ee591834f90b67510e18ecca, type: 3}
   m_PrefabInstance: {fileID: 694409956}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &724549242
@@ -5901,7 +5911,8 @@ MonoBehaviour:
   player1Prefab: {fileID: 7873353846990762006, guid: f6785ddcdeec8d24fa97387cddd8255c, type: 3}
   player2Prefab: {fileID: 456865963105779492, guid: 6e349851f834d16438c17171e5739251, type: 3}
   winnerCrownPrefab: {fileID: 4131888118196687026, guid: b715c7f06274a31478290c9f6ff05367, type: 3}
-  loserCrownPrefab: {fileID: 6011318425011204275, guid: 8452d33cc1e63d3499babd24048cbcdb, type: 3}
+  playerApple: {fileID: 694409958}
+  playerBanana: {fileID: 694409959}
 --- !u!1001 &5492205096889742577
 PrefabInstance:
   m_ObjectHideFlags: 0
