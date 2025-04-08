@@ -202,10 +202,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -361,6 +361,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &79053980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79053974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1 &96525294
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,10 +457,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -678,6 +691,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &135060377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135060371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1 &139397539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,10 +1367,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1706,10 +1732,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1921,10 +1947,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2409,10 +2435,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3072,10 +3098,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3207,17 +3233,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &793328585 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4328163522312464107, guid: cc541c362d59c034ea16b2fabb4e41ca, type: 3}
-  m_PrefabInstance: {fileID: 6663027502638161819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c0fd97b40a5404da2896a9a17ce152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &799817438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,10 +3466,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3780,10 +3795,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4073,10 +4088,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5437,10 +5452,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6346,10 +6361,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6653,10 +6668,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6798,6 +6813,7 @@ GameObject:
   - component: {fileID: 1314473555}
   - component: {fileID: 1314473554}
   - component: {fileID: 1314473557}
+  - component: {fileID: 1314473558}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -6880,10 +6896,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6952,6 +6968,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1314473558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314473552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1 &1328272018
 GameObject:
   m_ObjectHideFlags: 0
@@ -7035,10 +7064,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7522,10 +7551,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7962,10 +7991,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8329,10 +8358,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8484,10 +8513,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8779,10 +8808,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8999,10 +9028,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9158,6 +9187,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1609728467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609728461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1 &1611209278
 GameObject:
   m_ObjectHideFlags: 0
@@ -9442,10 +9484,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9541,6 +9583,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1685540463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685540457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1 &1689152900
 GameObject:
   m_ObjectHideFlags: 0
@@ -9849,10 +9904,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10004,10 +10059,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10450,10 +10505,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10854,10 +10909,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11111,10 +11166,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11326,10 +11381,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11505,10 +11560,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11684,10 +11739,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11839,10 +11894,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12093,10 +12148,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12272,10 +12327,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12487,10 +12542,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1314473558}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12933,7 +12988,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8267203711198143870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &120767945348513742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12978,10 +13045,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13124,10 +13191,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 9044412830659549831}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13602,10 +13669,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 9127008974046036078}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13708,10 +13775,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 9207008222205700143}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13859,10 +13926,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14064,10 +14131,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14348,10 +14415,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14820,10 +14887,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14940,6 +15007,7 @@ GameObject:
   - component: {fileID: 4633114284817282544}
   - component: {fileID: 8080247291237735915}
   - component: {fileID: 8080247291237735914}
+  - component: {fileID: 8080247291237735916}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -15021,6 +15089,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 6530193795167954592}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1630085259}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CargarEscenaJuego
@@ -15031,18 +15111,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Samir
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlaySfx
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button sound
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &2341544978208237238
@@ -15116,7 +15184,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 216973458853681513}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2484939115947214047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15161,10 +15241,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15383,10 +15463,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15810,10 +15890,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15934,10 +16014,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16014,10 +16094,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16251,10 +16331,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16409,13 +16489,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManagerHelper, Assembly-CSharp
-        m_MethodName: PlayASoundButton
-        m_Mode: 2
+      - m_Target: {fileID: 6603940502719677716}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e41a8bb06205604992744f875c59489, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16465,10 +16545,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16710,10 +16790,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17050,10 +17130,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 8080247291237735916}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17105,6 +17185,7 @@ GameObject:
   - component: {fileID: 2683567660760017027}
   - component: {fileID: 2330103391381531192}
   - component: {fileID: 6530193795167954591}
+  - component: {fileID: 6530193795167954592}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -17156,10 +17237,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 6603940502719677716}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17263,7 +17344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1381783620605725877}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &4989799281383374550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17670,6 +17763,7 @@ GameObject:
   - component: {fileID: 9127008974046036076}
   - component: {fileID: 838836726388957860}
   - component: {fileID: 9127008974046036077}
+  - component: {fileID: 9127008974046036078}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -17864,6 +17958,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6530193795167954592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779055638474549311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!114 &6530399897422495333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17968,6 +18075,7 @@ GameObject:
   - component: {fileID: 2880369409458717313}
   - component: {fileID: 4856440339591185101}
   - component: {fileID: 6603940502719677715}
+  - component: {fileID: 6603940502719677716}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -17997,6 +18105,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6603940502719677716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603940502719677714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1001 &6663027502638161819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18099,6 +18220,7 @@ GameObject:
   - component: {fileID: 5778129806189652183}
   - component: {fileID: 218834113867972331}
   - component: {fileID: 9044412830659549830}
+  - component: {fileID: 9044412830659549831}
   m_Layer: 5
   m_Name: HowButton
   m_TagString: Untagged
@@ -18346,9 +18468,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
+      - m_Target: {fileID: 7698828977452677234}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlaySfx
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18395,9 +18517,21 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 49733619030254449, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 49733619030254449, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 793328585}
+      objectReference: {fileID: 135060377}
+    - target: {fileID: 49733619030254449, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlaySfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 49733619030254449, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: ButtonSfx, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 331669958921055665, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_SizeDelta.x
       value: -63.9276
@@ -18513,7 +18647,11 @@ PrefabInstance:
     - target: {fileID: 1407828200809690448, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 793328585}
+      objectReference: {fileID: 79053974}
+    - target: {fileID: 1407828200809690448, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1560295788934169702, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 151
@@ -18907,13 +19045,25 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4329279478971673160, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329279478971673160, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1630085259}
     - target: {fileID: 4329279478971673160, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 793328585}
+      objectReference: {fileID: 1609728467}
+    - target: {fileID: 4329279478971673160, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329279478971673160, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonSfx, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4390759338565103517, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -19143,9 +19293,21 @@ PrefabInstance:
       value: 0.6717987
       objectReference: {fileID: 0}
     - target: {fileID: 6087256164497432092, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087256164497432092, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 793328585}
+      objectReference: {fileID: 7505077152442334634}
+    - target: {fileID: 6087256164497432092, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087256164497432092, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonSfx, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6100262908408016552, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -19563,9 +19725,21 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9053153084891153195, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053153084891153195, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 793328585}
+      objectReference: {fileID: 1685540463}
+    - target: {fileID: 9053153084891153195, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlaySfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053153084891153195, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: ButtonSfx, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 9120890055510841043, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19602,16 +19776,49 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8638827531110001750, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 135060376}
+    - targetCorrespondingSourceObject: {fileID: 8638827531110001750, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 135060377}
     - targetCorrespondingSourceObject: {fileID: 8510865584124071906, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1685540462}
+    - targetCorrespondingSourceObject: {fileID: 8510865584124071906, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1685540463}
     - targetCorrespondingSourceObject: {fileID: 4965948765154352290, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 79053979}
+    - targetCorrespondingSourceObject: {fileID: 4965948765154352290, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 79053980}
+    - targetCorrespondingSourceObject: {fileID: 750283436051188269, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7505077152442334634}
     - targetCorrespondingSourceObject: {fileID: 1938478758422107495, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1609728466}
+    - targetCorrespondingSourceObject: {fileID: 1938478758422107495, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1609728467}
   m_SourcePrefab: {fileID: 100100000, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+--- !u!1 &7505077152442334633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 750283436051188269, guid: 1d85714ba0ec1b149b6d78057b2c4cfc, type: 3}
+  m_PrefabInstance: {fileID: 7505077152442334632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7505077152442334634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505077152442334633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: 
 --- !u!114 &7533808404153365223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19866,6 +20073,7 @@ GameObject:
   - component: {fileID: 2278049781056002837}
   - component: {fileID: 7456317726610013549}
   - component: {fileID: 7698828977452677235}
+  - component: {fileID: 7698828977452677236}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -19895,6 +20103,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7698828977452677236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698828977452677234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!222 &7833132958737991558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20069,6 +20290,19 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hoverColor: {r: 0.6156863, g: 0.007843138, b: 0.03137255, a: 0.78431374}
   pressedColor: {r: 0.6156863, g: 0.007843138, b: 0.03137255, a: 1}
+--- !u!114 &8080247291237735916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237039247896142049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!114 &8267203711198143870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20449,10 +20683,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20675,10 +20909,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20989,10 +21223,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21117,6 +21351,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9044412830659549831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743020656114204652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!1 &9068670960944809514
 GameObject:
   m_ObjectHideFlags: 0
@@ -21203,10 +21450,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 793328585}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 7698828977452677236}
+        m_TargetAssemblyTypeName: ButtonSfx, Assembly-CSharp
         m_MethodName: PlaySfx
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21369,6 +21616,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9127008974046036078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084175482143756362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!224 &9175357194537857277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21423,6 +21683,7 @@ GameObject:
   - component: {fileID: 3765060640816028651}
   - component: {fileID: 1012824803544460928}
   - component: {fileID: 9207008222205700142}
+  - component: {fileID: 9207008222205700143}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -21452,6 +21713,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9207008222205700143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9207008222205700141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f4178c1dcadbc4383517152d956ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxName: Button sound
 --- !u!222 &9209150087048703287
 CanvasRenderer:
   m_ObjectHideFlags: 0

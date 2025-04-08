@@ -114,14 +114,14 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
         if (PhotonNetwork.IsMasterClient)
-        {            
+        {
             StartCoroutine(WaitForSecondsApple(0.3f));
 
         }
         else if (!PhotonNetwork.IsMasterClient)
         {
             StartCoroutine(WaitForSecondsBanana(0.5f));
-            
+
         }
 
     }
@@ -451,105 +451,105 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
 
-IEnumerator WaitForSecondsApple(float seconds)
+    IEnumerator WaitForSecondsApple(float seconds)
 
-{
-    Vector3 startScale = playerApple.transform.localScale; // Obtén el tamaño inicial
-    Vector3 endScale = new Vector3(1f, 1f, 1f); // Tamaño final
-
-    float elapsedTime = 0f; // Tiempo que ha pasado desde el inicio
-
-    while (true)
     {
-        // Redefinimos el tamaño inicial y final para que funcione cada vez que se repita
-        startScale = playerApple.transform.localScale;
-        endScale = new Vector3(0.7f, 0.7f, 0.7f); 
+        Vector3 startScale = playerApple.transform.localScale; // Obtén el tamaño inicial
+        Vector3 endScale = new Vector3(1f, 1f, 1f); // Tamaño final
 
-        // Transición progresiva de escala de 0.5 a 1
-        while (elapsedTime < seconds)
+        float elapsedTime = 0f; // Tiempo que ha pasado desde el inicio
+
+        while (true)
         {
-            playerApple.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
-            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
-            yield return null; // Esperamos el siguiente frame
+            // Redefinimos el tamaño inicial y final para que funcione cada vez que se repita
+            startScale = playerApple.transform.localScale;
+            endScale = new Vector3(0.7f, 0.7f, 0.7f);
+
+            // Transición progresiva de escala de 0.5 a 1
+            while (elapsedTime < seconds)
+            {
+                playerApple.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+                elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+                yield return null; // Esperamos el siguiente frame
+            }
+
+            // Aseguramos que el tamaño final sea exactamente el que queremos
+            playerApple.transform.localScale = endScale;
+
+            yield return new WaitForSeconds(0.2f); // Esperamos antes de cambiar a otro tamaño
+
+            elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
+
+            // Ahora cambiamos de nuevo a tamaño 1
+            startScale = playerApple.transform.localScale;
+            endScale = new Vector3(1f, 1f, 1f);
+
+            // Transición progresiva de escala de 1 a 0.5
+            while (elapsedTime < seconds)
+            {
+                playerApple.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+                elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+                yield return null; // Esperamos el siguiente frame
+            }
+
+            // Aseguramos que el tamaño final sea exactamente el que queremos
+            playerApple.transform.localScale = endScale;
+
+            yield return new WaitForSeconds(0.2f); // Esperamos antes de repetir el ciclo
+
+            elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
         }
-
-        // Aseguramos que el tamaño final sea exactamente el que queremos
-        playerApple.transform.localScale = endScale;
-
-        yield return new WaitForSeconds(0.2f); // Esperamos antes de cambiar a otro tamaño
-
-        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
-
-        // Ahora cambiamos de nuevo a tamaño 1
-        startScale = playerApple.transform.localScale;
-        endScale = new Vector3(1f, 1f, 1f); 
-
-        // Transición progresiva de escala de 1 a 0.5
-        while (elapsedTime < seconds)
-        {
-            playerApple.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
-            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
-            yield return null; // Esperamos el siguiente frame
-        }
-
-        // Aseguramos que el tamaño final sea exactamente el que queremos
-        playerApple.transform.localScale = endScale;
-
-        yield return new WaitForSeconds(0.2f); // Esperamos antes de repetir el ciclo
-
-        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
     }
-}
 
-IEnumerator WaitForSecondsBanana(float seconds)
+    IEnumerator WaitForSecondsBanana(float seconds)
 
-{
-    Vector3 startScale = playerBanana.transform.localScale; // Obtén el tamaño inicial
-    Vector3 endScale = new Vector3(1f, 1f, 1f); // Tamaño final
-
-    float elapsedTime = 0f; // Tiempo que ha pasado desde el inicio
-
-    while (true)
     {
-        // Redefinimos el tamaño inicial y final para que funcione cada vez que se repita
-        startScale = playerBanana.transform.localScale;
-        endScale = new Vector3(0.7f, 0.7f, 0.7f); 
+        Vector3 startScale = playerBanana.transform.localScale; // Obtén el tamaño inicial
+        Vector3 endScale = new Vector3(1f, 1f, 1f); // Tamaño final
 
-        // Transición progresiva de escala de 0.5 a 1
-        while (elapsedTime < seconds)
+        float elapsedTime = 0f; // Tiempo que ha pasado desde el inicio
+
+        while (true)
         {
-            playerBanana.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
-            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
-            yield return null; // Esperamos el siguiente frame
+            // Redefinimos el tamaño inicial y final para que funcione cada vez que se repita
+            startScale = playerBanana.transform.localScale;
+            endScale = new Vector3(0.7f, 0.7f, 0.7f);
+
+            // Transición progresiva de escala de 0.5 a 1
+            while (elapsedTime < seconds)
+            {
+                playerBanana.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+                elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+                yield return null; // Esperamos el siguiente frame
+            }
+
+            // Aseguramos que el tamaño final sea exactamente el que queremos
+            playerBanana.transform.localScale = endScale;
+
+            yield return new WaitForSeconds(0.2f); // Esperamos antes de cambiar a otro tamaño
+
+            elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
+
+            // Ahora cambiamos de nuevo a tamaño 1
+            startScale = playerBanana.transform.localScale;
+            endScale = new Vector3(1f, 1f, 1f);
+
+            // Transición progresiva de escala de 1 a 0.5
+            while (elapsedTime < seconds)
+            {
+                playerBanana.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
+                elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
+                yield return null; // Esperamos el siguiente frame
+            }
+
+            // Aseguramos que el tamaño final sea exactamente el que queremos
+            playerBanana.transform.localScale = endScale;
+
+            yield return new WaitForSeconds(0.2f); // Esperamos antes de repetir el ciclo
+
+            elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
         }
-
-        // Aseguramos que el tamaño final sea exactamente el que queremos
-        playerBanana.transform.localScale = endScale;
-
-        yield return new WaitForSeconds(0.2f); // Esperamos antes de cambiar a otro tamaño
-
-        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
-
-        // Ahora cambiamos de nuevo a tamaño 1
-        startScale = playerBanana.transform.localScale;
-        endScale = new Vector3(1f, 1f, 1f); 
-
-        // Transición progresiva de escala de 1 a 0.5
-        while (elapsedTime < seconds)
-        {
-            playerBanana.transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / seconds);
-            elapsedTime += Time.deltaTime; // Aumentamos el tiempo que ha pasado
-            yield return null; // Esperamos el siguiente frame
-        }
-
-        // Aseguramos que el tamaño final sea exactamente el que queremos
-        playerBanana.transform.localScale = endScale;
-
-        yield return new WaitForSeconds(0.2f); // Esperamos antes de repetir el ciclo
-
-        elapsedTime = 0f; // Reiniciamos el tiempo para la siguiente transición
     }
-}
 
 
 
