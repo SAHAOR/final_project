@@ -126,8 +126,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     }
 
-
-
     void Update()
     {
         if (isCounting)
@@ -143,14 +141,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         isCounting = true;
     }
 
-    IEnumerator ShowScoreChange(TextMeshProUGUI textMesh, string change)
+    private IEnumerator ShowScoreChange(TextMeshProUGUI textComponent, string text, Color color)
     {
-        textMesh.text = change;
-        textMesh.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        textMesh.gameObject.SetActive(false);
-    }
+        textComponent.text = text;
+        textComponent.color = color;
+        textComponent.gameObject.SetActive(true);
 
+        yield return new WaitForSeconds(1.5f); // espera 1.5 segundos (puedes ajustar)
+
+        textComponent.gameObject.SetActive(false);
+    }
 
 
     [PunRPC]
@@ -189,13 +189,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             scorePlayer1++;
             Debug.Log($"🎯 Nuevo Score P1: {scorePlayer1}");
-            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer1, "+1"));
+
+            Color greenHex;
+            ColorUtility.TryParseHtmlString("#008914", out greenHex); // verde
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer1, "+1", greenHex));
         }
         else if (playerID == player2ID)
         {
             scorePlayer2++;
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
-            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "+1"));
+
+            Color greenHex;
+            ColorUtility.TryParseHtmlString("#008914", out greenHex); // verde
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "+1", greenHex));
         }
 
         if (scorePlayer1 >= 100)
@@ -221,13 +227,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             scorePlayer1 = Mathf.Max(0, scorePlayer1 - 1);
             Debug.Log($"🎯 Nuevo Score P1: {scorePlayer1}");
-            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer1, "-1"));
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer1, "-1", Color.red));
         }
         else if (playerID == player2ID)
         {
             scorePlayer2 = Mathf.Max(0, scorePlayer2 - 1);
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
-            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "-1"));
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "-1", Color.red));
         }
 
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
