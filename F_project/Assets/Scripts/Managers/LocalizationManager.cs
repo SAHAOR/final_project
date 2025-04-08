@@ -124,6 +124,8 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(62, isEnglish ? "Power Up: Freezing Snow!" : "¡Potencia: Nieve helada!");
         tempDictionary.Add(63, isEnglish ? "How to win?" : "¿Cómo ganar?");
 
+        //WinAndLoseMenu
+        tempDictionary.Add(65, isEnglish ? "Return to the main menu" : "Volver al menu inicial");
 
         return tempDictionary;
     }

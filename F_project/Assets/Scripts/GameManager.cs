@@ -198,12 +198,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "+1"));
         }
 
-        if (scorePlayer1 >= 4)
+        if (scorePlayer1 >= 100)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player1ID, scorePlayer1);
             photonView.RPC("SetLoser", RpcTarget.All, player2ID, scorePlayer2);
         }
-        else if (scorePlayer2 >= 4)
+        else if (scorePlayer2 >= 100)
         {
             photonView.RPC("SetWinner", RpcTarget.All, player2ID, scorePlayer2);
             photonView.RPC("SetLoser", RpcTarget.All, player1ID, scorePlayer1);

@@ -18017,6 +18017,10 @@ PrefabInstance:
       propertyPath: volumeController
       value: 
       objectReference: {fileID: 1272525513}
+    - target: {fileID: 4328163522312464107, guid: cc541c362d59c034ea16b2fabb4e41ca, type: 3}
+      propertyPath: musicSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ebeab30eb1bafa41a8689c0beb11c07, type: 3}
     - target: {fileID: 8734701671697708894, guid: cc541c362d59c034ea16b2fabb4e41ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
