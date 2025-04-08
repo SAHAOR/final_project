@@ -127,6 +127,10 @@ public class LocalizationManager : MonoBehaviour
         //WinAndLoseMenu
         tempDictionary.Add(65, isEnglish ? "Return to the main menu" : "Volver al menu inicial");
 
+        //PowerUp
+        tempDictionary.Add(66, isEnglish ? "Frozen!" : "¡Congelado!");
+        tempDictionary.Add(67, isEnglish ? "Frozen Enemy" : "Enemigo Congelado");
+
         return tempDictionary;
     }
 
