@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject playerApple;
     public GameObject playerBanana;
 
+    public TextMeshProUGUI scoreChangeTextPlayer1;
+    public TextMeshProUGUI scoreChangeTextPlayer2;
+
 
     void Awake()
     {
@@ -140,6 +143,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         isCounting = true;
     }
 
+    IEnumerator ShowScoreChange(TextMeshProUGUI textMesh, string change)
+    {
+        textMesh.text = change;
+        textMesh.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        textMesh.gameObject.SetActive(false);
+    }
+
 
 
     [PunRPC]
@@ -178,11 +189,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             scorePlayer1++;
             Debug.Log($"🎯 Nuevo Score P1: {scorePlayer1}");
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer1, "+1"));
         }
         else if (playerID == player2ID)
         {
             scorePlayer2++;
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "+1"));
         }
 
         if (scorePlayer1 >= 4)
@@ -208,11 +221,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             scorePlayer1 = Mathf.Max(0, scorePlayer1 - 1);
             Debug.Log($"🎯 Nuevo Score P1: {scorePlayer1}");
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer1, "-1"));
         }
         else if (playerID == player2ID)
         {
             scorePlayer2 = Mathf.Max(0, scorePlayer2 - 1);
             Debug.Log($"🎯 Nuevo Score P2: {scorePlayer2}");
+            StartCoroutine(ShowScoreChange(scoreChangeTextPlayer2, "-1"));
         }
 
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered, scorePlayer1, scorePlayer2);
