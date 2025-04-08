@@ -56,11 +56,13 @@ public class InteractableObject : MonoBehaviourPun
         {
             photonView.RPC("AddScore", RpcTarget.AllBuffered, owner);
             RequestInstance();
+            
         }
         else
         {
             photonView.RPC("SubtractScore", RpcTarget.AllBuffered, owner);
             RequestDestroy();
+            AudioManager.instance.PlaySfx("Destroy sound"); // Reproducir SFX al hacer clic
         }
     }
 

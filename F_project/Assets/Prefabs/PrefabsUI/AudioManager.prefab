@@ -190,7 +190,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1ebeab30eb1bafa41a8689c0beb11c07, type: 3}
   sfxSounds:
   - nameSound: Button sound
-    clip: {fileID: 8300000, guid: 8f95abdcd8a388c4aafcec4ecbfca971, type: 3}
+    clip: {fileID: 8300000, guid: 6d44ea952dfb59148b9845fc1e7cd339, type: 3}
+  - nameSound: Instance sound
+    clip: {fileID: 8300000, guid: 1e60a659adfab644688020fbcd17999a, type: 3}
+  - nameSound: Destroy sound
+    clip: {fileID: 8300000, guid: 1e60a659adfab644688020fbcd17999a, type: 3}
+  - nameSound: Freeze sound
+    clip: {fileID: 8300000, guid: b6ab6b9f913add94c87d29636ad9015a, type: 3}
 --- !u!1 &8928990358225722056
 GameObject:
   m_ObjectHideFlags: 0

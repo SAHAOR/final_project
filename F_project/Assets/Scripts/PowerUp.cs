@@ -14,7 +14,8 @@ public class PowerUp : MonoBehaviourPun
     private void OnMouseDown()
     {
             int myActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
-            Player opponent = PhotonNetwork.PlayerList.FirstOrDefault(p => p.ActorNumber != myActorNumber);
+            Player opponent = PhotonNetwork.PlayerList.FirstOrDefault(p => p.ActorNumber != myActorNumber); 
+
 
             if (opponent != null)
             {
@@ -22,6 +23,7 @@ public class PowerUp : MonoBehaviourPun
             }
 
             ObjectSpawner.instance.photonView.RPC("DestroyObject", RpcTarget.MasterClient, photonView.ViewID); 
+            AudioManager.instance.PlaySfx("Instance sound"); // Reproducir SFX al hacer clic
 
     }
 

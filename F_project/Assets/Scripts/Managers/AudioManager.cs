@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -97,7 +99,7 @@ public class AudioManager : MonoBehaviour
                 PlayMusic("example menu theme 2"); // Reproduce la m�sica asignada al men�
                 break;
             case "Samir":
-                PlayMusic("Lobby Theme");
+                musicAudio.Stop();
                 break;    
             case "GameScene":
                 PlayMusic("Game theme"); // Reproduce la m�sica asignada al juego
@@ -111,6 +113,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    [PunRPC]
     // M�todo para reproducir un efecto de sonido (SFX) seg�n el nombre
     public void PlaySfx(string name)
     {
@@ -152,4 +155,34 @@ public class AudioManager : MonoBehaviour
         musicAudio.Stop();
         musicAudio.Play();
     }
+
+    // Método para pausar la música actual
+public void PauseMusic()
+{
+    if (musicAudio.isPlaying)
+    {
+        musicAudio.Pause();
+        Debug.Log("Música pausada.");
+    }
+    else
+    {
+        Debug.LogWarning("No hay música reproduciéndose para pausar.");
+    }
+}
+
+// Método para reanudar la música pausada
+public void ResumeMusic()
+{
+    if (!musicAudio.isPlaying && musicAudio.clip != null)
+    {
+        musicAudio.UnPause();
+        Debug.Log("Música reanudada.");
+    }
+    else
+    {
+        Debug.LogWarning("No hay música pausada para reanudar.");
+    }
+}
+
+
 }
