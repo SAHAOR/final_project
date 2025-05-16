@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIGameScene.unity
     guid: 6101c38aacab3d74fabde3b19341f2f4
+  - enabled: 1
+    path: Assets/Scenes/RandomGame.unity
+    guid: 6f223d8884a29b841bce41b3d55b0b22
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

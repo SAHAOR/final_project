@@ -131,6 +131,12 @@ public class LocalizationManager : MonoBehaviour
         tempDictionary.Add(66, isEnglish ? "Frozen!" : "¡Congelado!");
         tempDictionary.Add(67, isEnglish ? "Frozen Enemy" : "Enemigo Congelado");
 
+        //Random game
+        tempDictionary.Add(68, isEnglish ? "Random game" : "Partida aleatoria");
+        tempDictionary.Add(69, isEnglish ? "Connecting to a server..." : "conectándose a un servidor...");
+        tempDictionary.Add(70, isEnglish ? "A game was found!!" : "Se encontro una partida!!");
+        tempDictionary.Add(71, isEnglish ? "Joining the game" : "Uniéndose a la partida");
+
         return tempDictionary;
     }
 
